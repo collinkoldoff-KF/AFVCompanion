@@ -90,7 +90,8 @@ namespace AfvCompanion
         private void Form1_Load(object sender, EventArgs e)
         {
             mNewPtmConfiguration = mConfig.PTMConfiguration;
-            PTMApplicationPid = Process.GetProcessesByName(appListDropdown.SelectedItem.ToString())[0].Id;
+            if (appListDropdown.SelectedItem != null)
+                PTMApplicationPid = Process.GetProcessesByName(appListDropdown.SelectedItem.ToString())[0].Id;
         }
 
         private void notifyIcon1_MouseClick(object sender, MouseEventArgs e)

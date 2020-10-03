@@ -19,6 +19,7 @@ namespace AfvCompanion
             {
                 if (GetApplicationVolume(process.Id) != null)
                 {
+                    //Debug.WriteLine(process.ProcessName + " # " + process.Id);
                     Form1.appListDropdown.Items.Add(process.ProcessName);
                 }
             }
@@ -127,6 +128,10 @@ namespace AfvCompanion
                             if (ctl != null) Marshal.ReleaseComObject(ctl);
                         }
                     }
+                }
+                catch
+                {
+
                 }
                 finally
                 {

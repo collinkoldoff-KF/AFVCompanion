@@ -15,6 +15,7 @@ namespace AfvCompanion
 {
     static class Program
     {
+        public const string VERSION = "V0.1.0";
         private static string AppPath;
 
         [STAThread]
