@@ -62,4 +62,4 @@
 #*.rtf   diff=astextplain
 #*.RTF   diff=astextplain
 
-* linguist-generated=true
+*.* linguist-generated=true
