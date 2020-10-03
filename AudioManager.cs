@@ -22,7 +22,15 @@ namespace AfvCompanion
                     Form1.appListDropdown.Items.Add(process.ProcessName);
                 }
             }
-            Form1.appListDropdown.SelectedIndex = Form1.appListDropdown.Items.IndexOf(Form1.PTMApplicationName);
+            try
+            {
+                Form1.appListDropdown.SelectedIndex = Form1.appListDropdown.Items.IndexOf(Form1.PTMApplicationName);
+            }
+            catch
+            {
+                Form1.appListDropdown.SelectedIndex = 0;
+            }
+            
         }
         public static float? GetApplicationVolume(int pid)
         {
