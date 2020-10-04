@@ -29,6 +29,7 @@ namespace AfvCompanion
         public const int HT_CAPTION = 0x2;
 
         public static int PTMApplicationPid;
+        public static int AutoDeafenApplicationPid;
         public static string PTMApplicationName = "Undefined";
         public static string AutoDeafenApplicationName = "Undefined";
         public static string AutoDeafenApplication1 = "Undefined";
@@ -106,7 +107,7 @@ namespace AfvCompanion
                 mConfig.LoadConfig();
                 mConfig.AutoDeafenApplication = appListDropdown2.SelectedItem.ToString();
                 mConfig.SaveConfig();
-                //PTMApplicationPid = Process.GetProcessesByName(appListDropdown2.SelectedItem.ToString())[0].Id;
+                AutoDeafenApplicationPid = Process.GetProcessesByName(appListDropdown2.SelectedItem.ToString())[0].Id;
             }
             catch { }
         }
@@ -241,15 +242,13 @@ namespace AfvCompanion
         }
         private void btnDisableAll_click(object sender, EventArgs e)
         {
-            PushToDeafen.run = false;
-            AutoDeafen.run = false;
             AutoVolume.run = false;
             PushToDeafen.unMuteApplication();
             btnDisableAll.BackColor = System.Drawing.Color.Empty;
-            btnPushToDeafenToggle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            btnPushToDeafenToggle.Text = "Start";
-            btnAutoDeafenToggle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            btnAutoDeafenToggle.Text = "Start";
+            if (PushToDeafen.run)
+                PushToDeafen.Toggle(null, null);
+            if (AutoDeafen.run)
+                AutoDeafen.Toggle(null, null);
         }
         private void assignPTM_click(object sender, EventArgs e)
         {

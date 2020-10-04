@@ -7,7 +7,7 @@ namespace AfvCompanion
     {
         public static bool run = false;
 
-        public static void toggle(object sender, EventArgs e)
+        public static void Toggle(object sender, EventArgs e)
         {
             if (run)
             {

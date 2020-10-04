@@ -332,7 +332,7 @@ namespace AfvCompanion
             Form1.btnPushToDeafenToggle.Size = new System.Drawing.Size(380, 50);
             Form1.btnPushToDeafenToggle.TabIndex = 0;
             Form1.btnPushToDeafenToggle.Text = "Start";
-            Form1.btnPushToDeafenToggle.Click += new System.EventHandler(PushToDeafen.toggle);
+            Form1.btnPushToDeafenToggle.Click += new System.EventHandler(PushToDeafen.Toggle);
             #endregion
             #region page2 items
             // 

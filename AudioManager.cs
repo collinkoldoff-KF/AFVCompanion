@@ -30,7 +30,7 @@ namespace AfvCompanion
             {
                 if (GetApplicationVolume(process.Id) != null)
                 {
-                    //Debug.WriteLine(process.ProcessName + " # " + process.Id);
+                    Debug.WriteLine(process.ProcessName + " # " + process.Id);
                     Form1.appListDropdown.Items.Add(process.ProcessName);
                     Form1.appListDropdown2.Items.Add(process.ProcessName);
                     Form1.appListDropdown3.Items.Add(process.ProcessName);
@@ -56,8 +56,10 @@ namespace AfvCompanion
             try { Form1.appListDropdown7.SelectedIndex = Form1.appListDropdown7.Items.IndexOf(Form1.AutoDeafenApplication5); }
             catch { Form1.appListDropdown7.SelectedIndex = 0; }
         }
-        public static float? GetApplicationVolume(int pid)
+        public static float? GetApplicationVolume(int? pid)
         {
+            if (pid == null)
+                return null;
             ISimpleAudioVolume volume = GetVolumeObject(pid);
             if (volume == null)
                 return null;
@@ -67,27 +69,22 @@ namespace AfvCompanion
             Marshal.ReleaseComObject(volume);
             return level * 100;
         }
-        private static ISimpleAudioVolume GetVolumeObject(int pid)
+        private static ISimpleAudioVolume GetVolumeObject(int? pid)
         {
-            // get the speakers (1st render + multimedia) device
-            IMMDeviceEnumerator deviceEnumerator = (IMMDeviceEnumerator)(new MMDeviceEnumerator());
+            IMMDeviceEnumerator deviceEnumerator = MMDeviceEnumeratorFactory.CreateInstance();
             IMMDevice speakers;
             deviceEnumerator.GetDefaultAudioEndpoint(EDataFlow.eRender, ERole.eMultimedia, out speakers);
 
-            // activate the session manager. we need the enumerator
             Guid IID_IAudioSessionManager2 = typeof(IAudioSessionManager2).GUID;
             object o;
             speakers.Activate(ref IID_IAudioSessionManager2, 0, IntPtr.Zero, out o);
             IAudioSessionManager2 mgr = (IAudioSessionManager2)o;
 
-            // enumerate sessions for on this device
             IAudioSessionEnumerator sessionEnumerator;
             mgr.GetSessionEnumerator(out sessionEnumerator);
             int count;
             sessionEnumerator.GetCount(out count);
 
-            // search for an audio session with the required name
-            // NOTE: we could also use the process id instead of the app name (with IAudioSessionControl2)
             ISimpleAudioVolume volumeControl = null;
             for (int i = 0; i < count; i++)
             {
@@ -119,22 +116,18 @@ namespace AfvCompanion
                 IMMDevice speakers = null;
                 try
                 {
-                    // get the speakers (1st render + multimedia) device
-                    deviceEnumerator = (IMMDeviceEnumerator)(new MMDeviceEnumerator());
+                    deviceEnumerator = MMDeviceEnumeratorFactory.CreateInstance();
                     deviceEnumerator.GetDefaultAudioEndpoint(EDataFlow.eRender, ERole.eMultimedia, out speakers);
 
-                    // activate the session manager. we need the enumerator
                     Guid IID_IAudioSessionManager2 = typeof(IAudioSessionManager2).GUID;
                     object o;
                     speakers.Activate(ref IID_IAudioSessionManager2, 0, IntPtr.Zero, out o);
                     mgr = (IAudioSessionManager2)o;
 
-                    // enumerate sessions for on this device
                     mgr.GetSessionEnumerator(out sessionEnumerator);
                     int count;
                     sessionEnumerator.GetCount(out count);
 
-                    // search for an audio session with the required process-id
                     ISimpleAudioVolume volumeControl = null;
                     for (int i = 0; i < count; ++i)
                     {
@@ -143,7 +136,6 @@ namespace AfvCompanion
                         {
                             sessionEnumerator.GetSession(i, out ctl);
 
-                            // NOTE: we could also use the app name from ctl.GetDisplayName()
                             int cpid;
                             ctl.GetProcessId(out cpid);
 
@@ -171,6 +163,75 @@ namespace AfvCompanion
                     if (sessionEnumerator != null) Marshal.ReleaseComObject(sessionEnumerator);
                     if (deviceEnumerator != null) Marshal.ReleaseComObject(deviceEnumerator);
                 }
+            }
+        }
+        public static void SetApplicationVolume(int? pid, float? volume)
+        {
+            if (pid == null || volume == null)
+                return;
+            IMMDeviceEnumerator deviceEnumerator = null;
+            IAudioSessionEnumerator sessionEnumerator = null;
+            IAudioSessionManager2 mgr = null;
+            IMMDevice speakers = null;
+            try
+            {
+                deviceEnumerator = MMDeviceEnumeratorFactory.CreateInstance();
+                deviceEnumerator.GetDefaultAudioEndpoint(EDataFlow.eRender, ERole.eMultimedia, out speakers);
+
+                Guid IID_IAudioSessionManager2 = typeof(IAudioSessionManager2).GUID;
+                object o;
+                speakers.Activate(ref IID_IAudioSessionManager2, 0, IntPtr.Zero, out o);
+                mgr = (IAudioSessionManager2)o;
+
+                mgr.GetSessionEnumerator(out sessionEnumerator);
+                int count;
+                sessionEnumerator.GetCount(out count);
+
+                ISimpleAudioVolume volumeControl = null;
+                for (int i = 0; i < count; ++i)
+                {
+                    IAudioSessionControl2 ctl = null;
+                    try
+                    {
+                        sessionEnumerator.GetSession(i, out ctl);
+
+                        int cpid;
+                        ctl.GetProcessId(out cpid);
+
+                        if (cpid == pid)
+                        {
+                            Guid guid = Guid.Empty;
+                            volumeControl = ctl as ISimpleAudioVolume;
+                            volumeControl.SetMasterVolume((float)volume, ref guid);
+                        }
+                    }
+                    finally
+                    {
+                        if (ctl != null) Marshal.ReleaseComObject(ctl);
+                    }
+                }
+            }
+            catch
+            {
+                Debug.WriteLine("Major Error");
+                // If it gets to this point something is very wrong
+            }
+            finally
+            {
+                if (speakers != null) Marshal.ReleaseComObject(speakers);
+                if (mgr != null) Marshal.ReleaseComObject(mgr);
+                if (sessionEnumerator != null) Marshal.ReleaseComObject(sessionEnumerator);
+                if (deviceEnumerator != null) Marshal.ReleaseComObject(deviceEnumerator);
+            }
+        }
+        public static class MMDeviceEnumeratorFactory
+        {
+            private static readonly Guid MMDeviceEnumerator = new Guid("BCDE0395-E52F-467C-8E3D-C4579291692E");
+
+            public static IMMDeviceEnumerator CreateInstance()
+            {
+                var type = Type.GetTypeFromCLSID(MMDeviceEnumerator);
+                return (IMMDeviceEnumerator)Activator.CreateInstance(type);
             }
         }
     }
@@ -234,7 +295,9 @@ namespace AfvCompanion
         int GetSession(int SessionCount, out IAudioSessionControl2 Session);
     }
 
-    [Guid("A95664D2-9614-4F35-A746-DE8DB63617E6"), InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
+    [ComImport]
+    [Guid("A95664D2-9614-4F35-A746-DE8DB63617E6")]
+    [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
     internal interface IMMDeviceEnumerator
     {
         int NotImpl1();

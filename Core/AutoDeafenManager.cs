@@ -37,9 +37,13 @@ namespace AfvCompanion.Core
                         {
                             if (session2.ProcessID == pid)
                             {
-                                if (audioMeterInformation.GetPeakValue() > 0.00)
+                                if (audioMeterInformation.GetPeakValue() > 0.0001)
                                 {
                                     return true;
+                                } 
+                                else
+                                {
+                                    return false;
                                 }
                             } 
                         }
@@ -60,15 +64,40 @@ namespace AfvCompanion.Core
 
         private void CheckOutput()
         {
-            bool output = Task.Run(() => GetProcessSoundOutput(20880)).Result;
+            bool output = Task.Run(() => GetProcessSoundOutput(Form1.AutoDeafenApplicationPid)).Result;
 
             if (output != mOutput)
             {
                 if (AutoDeafen.run)
                 {
                     mOutput = output;
-                    Debug.WriteLine("OUTPUT YAY!!!");
-                    // Output code
+                    if (output)
+                    {
+                        float volume = 0.50f;
+                        try { AudioManager.SetApplicationVolume(AutoDeafen.AutoDeafenApplicationPid1, volume); }
+                        catch { }
+                        try { AudioManager.SetApplicationVolume(AutoDeafen.AutoDeafenApplicationPid2, volume); }
+                        catch { }
+                        try { AudioManager.SetApplicationVolume(AutoDeafen.AutoDeafenApplicationPid3, volume); }
+                        catch { }
+                        try { AudioManager.SetApplicationVolume(AutoDeafen.AutoDeafenApplicationPid4, volume); }
+                        catch { }
+                        try { AudioManager.SetApplicationVolume(AutoDeafen.AutoDeafenApplicationPid5, volume); }
+                        catch { }
+                    }
+                    else if (output == false)
+                    {
+                        try { AudioManager.SetApplicationVolume(AutoDeafen.AutoDeafenApplicationPid1, AutoDeafen.appOriginalVol1); }
+                        catch { }
+                        try { AudioManager.SetApplicationVolume(AutoDeafen.AutoDeafenApplicationPid2, AutoDeafen.appOriginalVol2); }
+                        catch { }
+                        try { AudioManager.SetApplicationVolume(AutoDeafen.AutoDeafenApplicationPid3, AutoDeafen.appOriginalVol3); }
+                        catch { }
+                        try { AudioManager.SetApplicationVolume(AutoDeafen.AutoDeafenApplicationPid4, AutoDeafen.appOriginalVol4); }
+                        catch { }
+                        try { AudioManager.SetApplicationVolume(AutoDeafen.AutoDeafenApplicationPid5, AutoDeafen.appOriginalVol5); }
+                        catch { }
+                    }
                 }
             }
         }
@@ -83,7 +112,6 @@ namespace AfvCompanion.Core
             {
                 using (var device = enumerator.GetDefaultAudioEndpoint(dataFlow, Role.Multimedia))
                 {
-                    //Debug.WriteLine("DefaultDevice: " + device.FriendlyName);
                     var sessionManager = AudioSessionManager2.FromMMDevice(device);
                     return sessionManager;
                 }
