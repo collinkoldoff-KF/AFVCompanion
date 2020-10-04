@@ -1,20 +1,17 @@
-﻿using System;
-using System.Diagnostics;
-using System.Runtime.InteropServices;
-using System.Windows.Forms;
-using AfvCompanion.Config;
+﻿using AfvCompanion.Config;
 using AfvCompanion.Core.Events;
 using Appccelerate.EventBroker;
-using Appccelerate.EventBroker.Handlers;
 using SharpDX;
 using SharpDX.DirectInput;
+using System;
+using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace AfvCompanion.Core
 {
     class PtmManager : EventBus, IPtmManager
     {
-        [EventPublication(EventTopics.PushToTalkStateChanged)]
-        public event EventHandler<PushToMuteStateChangedEventArgs> PushToTalkStateChanged;
+        public event EventHandler<PushToMuteStateChangedEventArgs> PushToMuteStateChanged;
 
         private readonly IAppConfig mConfig;
         private readonly DirectInput mDirectInput;
@@ -97,21 +94,21 @@ namespace AfvCompanion.Core
                     isPressed = GetAsyncKeyState(key) != 0;
                     break;
             }
-            
+
             if (isPressed != mPtmStatus)
             {
                 mPtmStatus = isPressed;
                 if (mPtmStatus)
                 {
                     if (PushToDeafen.run)
-                    PushToDeafen.muteApplication();
-                } 
+                        PushToDeafen.muteApplication();
+                }
                 else
                 {
                     PushToDeafen.unMuteApplication();
                 }
 
-                PushToTalkStateChanged?.Invoke(this, new PushToMuteStateChangedEventArgs(mPtmStatus));
+                PushToMuteStateChanged?.Invoke(this, new PushToMuteStateChangedEventArgs(mPtmStatus));
             }
         }
 
@@ -175,21 +172,17 @@ namespace AfvCompanion.Core
             }
             mJoystick = null;
         }
-
-        [EventSubscription(EventTopics.SessionStarted, typeof(OnUserInterfaceAsync))]
         public void OnSessionStarted(object sender, EventArgs e)
         {
             RemovePtmDevice(mConfig.PTMConfiguration);
             mPtmTimer.Start();
         }
 
-        [EventSubscription(EventTopics.SessionEnded, typeof(OnUserInterfaceAsync))]
         public void OnSessionEnded(object sender, EventArgs e)
         {
             mPtmTimer.Stop();
         }
 
-        [EventSubscription(EventTopics.ClientConfigChanged, typeof(OnUserInterfaceAsync))]
         public void OnClientConfigChanged(object sender, EventArgs e)
         {
             RemovePtmDevice(mConfig.PTMConfiguration);

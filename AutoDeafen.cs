@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Diagnostics;
-using System.Windows.Forms;
-using System.Runtime.InteropServices;
-using System.Threading.Tasks;
-using AfvCompanion.Core;
+﻿using AfvCompanion.Core;
+using System;
 
 namespace AfvCompanion
 {
@@ -20,7 +14,7 @@ namespace AfvCompanion
                 if (PushToDeafen.run == false && AutoVolume.run == false)
                 {
                     Form1.btnDisableAll.BackColor = System.Drawing.Color.Empty;
-                    
+
                 }
                 Form1.btnAutoDeafenToggle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
                 Form1.btnAutoDeafenToggle.Text = "Start";

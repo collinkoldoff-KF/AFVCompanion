@@ -1,15 +1,11 @@
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using AfvCompanion.Config;
 using AfvCompanion.Core;
 using Appccelerate.EventBroker;
 using Ninject;
+using System;
+using System.IO;
+using System.Reflection;
+using System.Windows.Forms;
 
 namespace AfvCompanion
 {
@@ -24,7 +20,7 @@ namespace AfvCompanion
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            
+
             AppPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             string configFilePath = Path.Combine(AppPath, "AppConfig.json");
 

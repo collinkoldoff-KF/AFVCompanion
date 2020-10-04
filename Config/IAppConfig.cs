@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace AfvCompanion.Config
+﻿namespace AfvCompanion.Config
 {
     interface IAppConfig
     {
