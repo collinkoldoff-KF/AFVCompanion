@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
+using AfvCompanion.Core;
 
 namespace AfvCompanion
 {
@@ -27,6 +28,7 @@ namespace AfvCompanion
                 }
                 Form1.btnPushToDeafenToggle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
                 Form1.btnPushToDeafenToggle.Text = "Start";
+                PtmManager.mPtmTimer.Stop();
             }
             else if (run == false)
             {
@@ -34,6 +36,7 @@ namespace AfvCompanion
                 Form1.btnDisableAll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(206)))));
                 Form1.btnPushToDeafenToggle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(206)))));
                 Form1.btnPushToDeafenToggle.Text = "Stop";
+                PtmManager.mPtmTimer.Start();
             }
         }
         public static void muteApplication()

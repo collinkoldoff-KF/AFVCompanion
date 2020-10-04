@@ -24,6 +24,7 @@ namespace AfvCompanion
                 }
                 Form1.btnAutoDeafenToggle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
                 Form1.btnAutoDeafenToggle.Text = "Start";
+                AutoDeafenManager.mOutputTimer.Stop();
             }
             else if (run == false)
             {
@@ -31,6 +32,7 @@ namespace AfvCompanion
                 Form1.btnDisableAll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(206)))));
                 Form1.btnAutoDeafenToggle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(206)))));
                 Form1.btnAutoDeafenToggle.Text = "Stop";
+                AutoDeafenManager.mOutputTimer.Start();
             }
         }
     }

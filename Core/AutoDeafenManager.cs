@@ -13,7 +13,7 @@ namespace AfvCompanion.Core
     class AutoDeafenManager : EventBus, IAutoDeafenManager
     {
         private readonly IAppConfig mConfig;
-        private readonly System.Windows.Forms.Timer mOutputTimer;
+        public static System.Windows.Forms.Timer mOutputTimer;
         private bool mOutput;
 
         public AutoDeafenManager(IEventBroker broker, IAppConfig config) : base(broker)
@@ -54,6 +54,10 @@ namespace AfvCompanion.Core
         private void PtmTimer_Tick(object sender, EventArgs e)
         {
             CheckOutput();
+            if (AutoDeafen.run == false)
+            {
+                mOutputTimer.Stop();
+            }
         }
 
         private void CheckOutput()

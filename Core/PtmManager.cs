@@ -18,7 +18,7 @@ namespace AfvCompanion.Core
 
         private readonly IAppConfig mConfig;
         private readonly DirectInput mDirectInput;
-        private readonly System.Windows.Forms.Timer mPtmTimer;
+        public static System.Windows.Forms.Timer mPtmTimer;
         private static PTMConfiguration mPtmConfiguration = new PTMConfiguration();
         private Joystick mJoystick;
         private bool mPtmStatus;
@@ -48,6 +48,10 @@ namespace AfvCompanion.Core
                 AcquireJoystick();
             }
             CheckPtmDevice();
+            if (PushToDeafen.run == false)
+            {
+                mPtmTimer.Stop();
+            }
         }
 
         private void CheckPtmDevice()

@@ -33,7 +33,9 @@ namespace AfvCompanion
 
             IEventBroker broker = kernel.Get<IEventBroker>();
             PtmManager ptmManager = new PtmManager(broker, config);
+            PtmManager.mPtmTimer.Stop();
             AutoDeafenManager autoDeafenManager = new AutoDeafenManager(broker, config);
+            AutoDeafenManager.mOutputTimer.Stop();
 
             try
             {
