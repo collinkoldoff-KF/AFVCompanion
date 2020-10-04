@@ -12,7 +12,7 @@ namespace AfvCompanion
     class AutoDeafen
     {
         public static bool run = false;
-        public static void toggle(object sender, EventArgs e)
+        public static void Toggle(object sender, EventArgs e)
         {
             if (run)
             {
@@ -31,8 +31,6 @@ namespace AfvCompanion
                 Form1.btnDisableAll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(206)))));
                 Form1.btnAutoDeafenToggle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(206)))));
                 Form1.btnAutoDeafenToggle.Text = "Stop";
-                Task.Run(() => AutoDeafenManager.GetProcessSoundOutput(1));
-                Debug.WriteLine("Test");
             }
         }
     }

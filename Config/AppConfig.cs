@@ -20,6 +20,13 @@ namespace AfvCompanion.Config
         //Define separate variables
         public PTMConfiguration PTMConfiguration { get; set; }
         public string PTMApplication { get; set; }
+        public string AutoDeafenApplication { get; set; }
+        public string AutoDeafenApplication1 { get; set; }
+        public string AutoDeafenApplication2 { get; set; }
+        public string AutoDeafenApplication3 { get; set; }
+        public string AutoDeafenApplication4 { get; set; }
+        public string AutoDeafenApplication5 { get; set; }
+
 
         public AppConfig()
         {

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace AfvCompanion.Core
 {
@@ -36,12 +37,18 @@ namespace AfvCompanion.Core
                         using (var audioMeterInformation = session.QueryInterface<AudioMeterInformation>())
                         using (var session2 = session.QueryInterface<AudioSessionControl2>())
                         {
-                            Debug.WriteLine(audioMeterInformation.GetPeakValue() + " # " + Process.GetProcessById(session2.ProcessID).ProcessName);
+                            if (session2.ProcessID == pid)
+                            {
+                                if (audioMeterInformation.GetPeakValue() > 0.00)
+                                {
+                                    return true;
+                                }
+                            } 
                         }
                     }
                 }
             }
-            return true;
+            return false;
         }
 
         private void PtmTimer_Tick(object sender, EventArgs e)
@@ -51,17 +58,16 @@ namespace AfvCompanion.Core
 
         private void CheckOutput()
         {
-            bool output = false;
-            switch (true)
-            {
-                case true:
-                    break;
-            }
+            bool output = Task.Run(() => GetProcessSoundOutput(20880)).Result;
 
             if (output != mOutput)
             {
-                mOutput = output;
-
+                if (AutoDeafen.run)
+                {
+                    mOutput = output;
+                    Debug.WriteLine("OUTPUT YAY!!!");
+                    // Output code
+                }
             }
         }
         public void OnSessionStarted(object sender, EventArgs e)
@@ -75,7 +81,7 @@ namespace AfvCompanion.Core
             {
                 using (var device = enumerator.GetDefaultAudioEndpoint(dataFlow, Role.Multimedia))
                 {
-                    Debug.WriteLine("DefaultDevice: " + device.FriendlyName);
+                    //Debug.WriteLine("DefaultDevice: " + device.FriendlyName);
                     var sessionManager = AudioSessionManager2.FromMMDevice(device);
                     return sessionManager;
                 }

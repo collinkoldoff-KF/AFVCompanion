@@ -14,6 +14,20 @@ namespace AfvCompanion
             Process[] processlist = Process.GetProcesses();
 
             Form1.appListDropdown.Items.Clear();
+            Form1.appListDropdown2.Items.Clear();
+            Form1.appListDropdown3.Items.Clear();
+            Form1.appListDropdown4.Items.Clear();
+            Form1.appListDropdown5.Items.Clear();
+            Form1.appListDropdown6.Items.Clear();
+            Form1.appListDropdown7.Items.Clear();
+
+            Form1.appListDropdown2.Items.Add("Undefined");
+            Form1.appListDropdown3.Items.Add("Undefined");
+            Form1.appListDropdown4.Items.Add("None");
+            Form1.appListDropdown5.Items.Add("None");
+            Form1.appListDropdown6.Items.Add("None");
+            Form1.appListDropdown7.Items.Add("None");
+
 
             foreach (Process process in processlist)
             {
@@ -21,17 +35,29 @@ namespace AfvCompanion
                 {
                     //Debug.WriteLine(process.ProcessName + " # " + process.Id);
                     Form1.appListDropdown.Items.Add(process.ProcessName);
+                    Form1.appListDropdown2.Items.Add(process.ProcessName);
+                    Form1.appListDropdown3.Items.Add(process.ProcessName);
+                    Form1.appListDropdown4.Items.Add(process.ProcessName);
+                    Form1.appListDropdown5.Items.Add(process.ProcessName);
+                    Form1.appListDropdown6.Items.Add(process.ProcessName);
+                    Form1.appListDropdown7.Items.Add(process.ProcessName);
                 }
             }
-            try
-            {
-                Form1.appListDropdown.SelectedIndex = Form1.appListDropdown.Items.IndexOf(Form1.PTMApplicationName);
-            }
-            catch
-            {
-                Form1.appListDropdown.SelectedIndex = 0;
-            }
-            
+
+            try { Form1.appListDropdown.SelectedIndex = Form1.appListDropdown.Items.IndexOf(Form1.PTMApplicationName); }
+            catch { Form1.appListDropdown.SelectedIndex = 0; }
+            try { Form1.appListDropdown2.SelectedIndex = Form1.appListDropdown2.Items.IndexOf(Form1.AutoDeafenApplicationName); }
+            catch { Form1.appListDropdown2.SelectedIndex = 0; }
+            try { Form1.appListDropdown3.SelectedIndex = Form1.appListDropdown3.Items.IndexOf(Form1.AutoDeafenApplication1); }
+            catch { Form1.appListDropdown3.SelectedIndex = 0; }
+            try { Form1.appListDropdown4.SelectedIndex = Form1.appListDropdown4.Items.IndexOf(Form1.AutoDeafenApplication2); }
+            catch { Form1.appListDropdown4.SelectedIndex = 0; }
+            try { Form1.appListDropdown5.SelectedIndex = Form1.appListDropdown5.Items.IndexOf(Form1.AutoDeafenApplication3); }
+            catch { Form1.appListDropdown5.SelectedIndex = 0; }
+            try { Form1.appListDropdown6.SelectedIndex = Form1.appListDropdown6.Items.IndexOf(Form1.AutoDeafenApplication4); }
+            catch { Form1.appListDropdown6.SelectedIndex = 0; }
+            try { Form1.appListDropdown7.SelectedIndex = Form1.appListDropdown7.Items.IndexOf(Form1.AutoDeafenApplication5); }
+            catch { Form1.appListDropdown7.SelectedIndex = 0; }
         }
         public static float? GetApplicationVolume(int pid)
         {
