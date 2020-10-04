@@ -14,24 +14,11 @@
     <PackageReference Include="Appccelerate.EventBroker" Version="4.0.0" />
     <PackageReference Include="AsyncIO" Version="0.1.69" />
     <PackageReference Include="CSCore" Version="1.2.1.2" />
-    <PackageReference Include="NAudio" Version="1.10.0" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="Ninject" Version="3.3.4" />
     <PackageReference Include="Ninject.Extensions.Factory" Version="3.3.3" />
     <PackageReference Include="SharpDX" Version="4.2.0" />
     <PackageReference Include="SharpDX.DirectInput" Version="4.2.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\..\..\Desktop\xpilot dev\Pilot-Client\packages\Newtonsoft.Json.12.0.3\lib\net20\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="SharpDX">
-      <HintPath>..\..\..\Desktop\xpilot dev\Pilot-Client\packages\SharpDX.4.2.0\lib\net40\SharpDX.dll</HintPath>
-    </Reference>
-    <Reference Include="SharpDX.DirectInput">
-      <HintPath>..\..\..\Desktop\xpilot dev\Pilot-Client\packages\SharpDX.DirectInput.4.2.0\lib\net45\SharpDX.DirectInput.dll</HintPath>
-    </Reference>
   </ItemGroup>
 
 </Project>
