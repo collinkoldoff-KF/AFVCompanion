@@ -15,27 +15,25 @@ namespace AfvCompanion
             }
             base.Dispose(disposing);
         }
-
-        #region Windows Form Designer generated code
         private void InitializeComponent()
         {
             this.KeyPreview = true;
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.label = new AfvCompanion.TransparentClickLabel();
-            Form1.appListDropdown = new System.Windows.Forms.ComboBox();
-            Form1.appListDropdown2 = new System.Windows.Forms.ComboBox();
-            Form1.appListDropdown3 = new System.Windows.Forms.ComboBox();
-            Form1.appListDropdown4 = new System.Windows.Forms.ComboBox();
-            Form1.appListDropdown5 = new System.Windows.Forms.ComboBox();
-            Form1.appListDropdown6 = new System.Windows.Forms.ComboBox();
-            Form1.appListDropdown7 = new System.Windows.Forms.ComboBox();
-            Form1.btnAutoDeafenToggle = new AfvCompanion.FlatButton();
-            Form1.btnAppListRefresh = new AfvCompanion.FlatButton();
-            Form1.btnPushToDeafenToggle = new AfvCompanion.FlatButton();
-            Form1.btnAppListRefresh2 = new AfvCompanion.FlatButton();
+            this.appListDropdown = new System.Windows.Forms.ComboBox();
+            this.appListDropdown2 = new System.Windows.Forms.ComboBox();
+            this.appListDropdown3 = new System.Windows.Forms.ComboBox();
+            this.appListDropdown4 = new System.Windows.Forms.ComboBox();
+            this.appListDropdown5 = new System.Windows.Forms.ComboBox();
+            this.appListDropdown6 = new System.Windows.Forms.ComboBox();
+            this.appListDropdown7 = new System.Windows.Forms.ComboBox();
+            this.btnAutoDeafenToggle = new AfvCompanion.FlatButton();
+            this.btnAppListRefresh = new AfvCompanion.FlatButton();
+            this.btnPushToDeafenToggle = new AfvCompanion.FlatButton();
+            this.btnAppListRefresh2 = new AfvCompanion.FlatButton();
             this.btnClose = new AfvCompanion.FlatButton();
-            Form1.btnDisableAll = new AfvCompanion.FlatButton();
+            this.btnDisableAll = new AfvCompanion.FlatButton();
             this.btnMinimize = new AfvCompanion.FlatButton();
             this.btnSettings = new AfvCompanion.FlatButton();
             this.btnSetPTM = new AfvCompanion.FlatButton();
@@ -117,21 +115,21 @@ namespace AfvCompanion
             // 
             // btnDisableAll
             // 
-            Form1.btnDisableAll.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            Form1.btnDisableAll.Clicked = false;
-            Form1.btnDisableAll.ClickedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(206)))));
-            Form1.btnDisableAll.Cursor = System.Windows.Forms.Cursors.Hand;
-            Form1.btnDisableAll.DisabledTextColor = System.Drawing.Color.DarkGray;
-            Form1.btnDisableAll.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            Form1.btnDisableAll.ForeColor = System.Drawing.Color.White;
-            Form1.btnDisableAll.Location = new System.Drawing.Point(95, 19);
-            Form1.btnDisableAll.Name = "btnSettings";
-            Form1.btnDisableAll.Pushed = false;
-            Form1.btnDisableAll.PushedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(206)))));
-            Form1.btnDisableAll.Size = new System.Drawing.Size(75, 23);
-            Form1.btnDisableAll.TabIndex = 4;
-            Form1.btnDisableAll.Text = "Disable All";
-            Form1.btnDisableAll.Click += new System.EventHandler(this.btnDisableAll_click);
+            this.btnDisableAll.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.btnDisableAll.Clicked = false;
+            this.btnDisableAll.ClickedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(206)))));
+            this.btnDisableAll.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDisableAll.DisabledTextColor = System.Drawing.Color.DarkGray;
+            this.btnDisableAll.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDisableAll.ForeColor = System.Drawing.Color.White;
+            this.btnDisableAll.Location = new System.Drawing.Point(95, 19);
+            this.btnDisableAll.Name = "btnSettings";
+            this.btnDisableAll.Pushed = false;
+            this.btnDisableAll.PushedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(206)))));
+            this.btnDisableAll.Size = new System.Drawing.Size(75, 23);
+            this.btnDisableAll.TabIndex = 4;
+            this.btnDisableAll.Text = "Disable All";
+            this.btnDisableAll.Click += new System.EventHandler(this.btnDisableAll_click);
             // 
             // label
             // 
@@ -153,7 +151,7 @@ namespace AfvCompanion
             this.pnlToolbar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(44)))), ((int)(((byte)(46)))));
             this.pnlToolbar.BorderColor = System.Drawing.Color.Transparent;
             this.pnlToolbar.Controls.Add(this.btnSettings);
-            this.pnlToolbar.Controls.Add(Form1.btnDisableAll);
+            this.pnlToolbar.Controls.Add(this.btnDisableAll);
             this.pnlToolbar.Controls.Add(this.label);
             this.pnlToolbar.Controls.Add(this.btnMinimize);
             this.pnlToolbar.Controls.Add(this.btnClose);
@@ -229,9 +227,9 @@ namespace AfvCompanion
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(22)))), ((int)(((byte)(24)))));
-            this.tabPage1.Controls.Add(Form1.appListDropdown);
-            this.tabPage1.Controls.Add(Form1.btnAppListRefresh);
-            this.tabPage1.Controls.Add(Form1.btnPushToDeafenToggle);
+            this.tabPage1.Controls.Add(this.appListDropdown);
+            this.tabPage1.Controls.Add(this.btnAppListRefresh);
+            this.tabPage1.Controls.Add(this.btnPushToDeafenToggle);
             this.tabPage1.Controls.Add(this.btnSetPTM);
             this.tabPage1.ForeColor = System.Drawing.Color.White;
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
@@ -243,14 +241,14 @@ namespace AfvCompanion
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(22)))), ((int)(((byte)(24)))));
-            this.tabPage2.Controls.Add(Form1.appListDropdown2);
-            this.tabPage2.Controls.Add(Form1.appListDropdown3);
-            this.tabPage2.Controls.Add(Form1.appListDropdown4);
-            this.tabPage2.Controls.Add(Form1.appListDropdown5);
-            this.tabPage2.Controls.Add(Form1.appListDropdown6);
-            this.tabPage2.Controls.Add(Form1.appListDropdown7);
-            this.tabPage2.Controls.Add(Form1.btnAppListRefresh2);
-            this.tabPage2.Controls.Add(Form1.btnAutoDeafenToggle);
+            this.tabPage2.Controls.Add(this.appListDropdown2);
+            this.tabPage2.Controls.Add(this.appListDropdown3);
+            this.tabPage2.Controls.Add(this.appListDropdown4);
+            this.tabPage2.Controls.Add(this.appListDropdown5);
+            this.tabPage2.Controls.Add(this.appListDropdown6);
+            this.tabPage2.Controls.Add(this.appListDropdown7);
+            this.tabPage2.Controls.Add(this.btnAppListRefresh2);
+            this.tabPage2.Controls.Add(this.btnAutoDeafenToggle);
             this.tabPage2.ForeColor = System.Drawing.Color.White;
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
@@ -290,147 +288,147 @@ namespace AfvCompanion
             // 
             // appListDropdown
             //
-            Form1.appListDropdown.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            Form1.appListDropdown.ForeColor = Color.White;
-            Form1.appListDropdown.Location = new System.Drawing.Point(10, 100);
-            Form1.appListDropdown.Name = "appListDropdown";
-            Form1.appListDropdown.Size = new System.Drawing.Size(264, 25);
-            Form1.appListDropdown.TabIndex = 0;
-            Form1.appListDropdown.SelectedIndexChanged += new System.EventHandler(this.appListDropdown_SelectedIndexChanged);
+            this.appListDropdown.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.appListDropdown.ForeColor = Color.White;
+            this.appListDropdown.Location = new System.Drawing.Point(10, 100);
+            this.appListDropdown.Name = "appListDropdown";
+            this.appListDropdown.Size = new System.Drawing.Size(264, 25);
+            this.appListDropdown.TabIndex = 0;
+            this.appListDropdown.SelectedIndexChanged += new System.EventHandler(this.appListDropdown_SelectedIndexChanged);
             // 
             // btnAppListRefresh
             //
-            Form1.btnAppListRefresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            Form1.btnAppListRefresh.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            Form1.btnAppListRefresh.Clicked = false;
-            Form1.btnAppListRefresh.ClickedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(206)))));
-            Form1.btnAppListRefresh.Cursor = System.Windows.Forms.Cursors.Hand;
-            Form1.btnAppListRefresh.DisabledTextColor = System.Drawing.Color.DarkGray;
-            Form1.btnAppListRefresh.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            Form1.btnAppListRefresh.ForeColor = System.Drawing.Color.White;
-            Form1.btnAppListRefresh.Location = new System.Drawing.Point(280, 100);
-            Form1.btnAppListRefresh.Name = "autoDeafenToggle";
-            Form1.btnAppListRefresh.PushedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(206)))));
-            Form1.btnAppListRefresh.Size = new System.Drawing.Size(75, 20);
-            Form1.btnAppListRefresh.TabIndex = 0;
-            Form1.btnAppListRefresh.Text = "Refresh";
-            Form1.btnAppListRefresh.Click += new System.EventHandler(AudioManager.audioDevices);
+            this.btnAppListRefresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.btnAppListRefresh.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.btnAppListRefresh.Clicked = false;
+            this.btnAppListRefresh.ClickedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(206)))));
+            this.btnAppListRefresh.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAppListRefresh.DisabledTextColor = System.Drawing.Color.DarkGray;
+            this.btnAppListRefresh.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAppListRefresh.ForeColor = System.Drawing.Color.White;
+            this.btnAppListRefresh.Location = new System.Drawing.Point(280, 100);
+            this.btnAppListRefresh.Name = "autoDeafenToggle";
+            this.btnAppListRefresh.PushedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(206)))));
+            this.btnAppListRefresh.Size = new System.Drawing.Size(75, 20);
+            this.btnAppListRefresh.TabIndex = 0;
+            this.btnAppListRefresh.Text = "Refresh";
+            this.btnAppListRefresh.Click += new System.EventHandler(this.audioDevices);
             // 
             // btnPushToDeafenToggle
             //
-            Form1.btnPushToDeafenToggle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            Form1.btnPushToDeafenToggle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            Form1.btnPushToDeafenToggle.Clicked = false;
-            Form1.btnPushToDeafenToggle.ClickedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(206)))));
-            Form1.btnPushToDeafenToggle.Cursor = System.Windows.Forms.Cursors.Hand;
-            Form1.btnPushToDeafenToggle.DisabledTextColor = System.Drawing.Color.DarkGray;
-            Form1.btnPushToDeafenToggle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            Form1.btnPushToDeafenToggle.ForeColor = System.Drawing.Color.White;
-            Form1.btnPushToDeafenToggle.Location = new System.Drawing.Point(7, 352);
-            Form1.btnPushToDeafenToggle.Name = "btnPushToDeafenToggle";
-            Form1.btnPushToDeafenToggle.PushedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(206)))));
-            Form1.btnPushToDeafenToggle.Size = new System.Drawing.Size(380, 50);
-            Form1.btnPushToDeafenToggle.TabIndex = 0;
-            Form1.btnPushToDeafenToggle.Text = "Start";
-            Form1.btnPushToDeafenToggle.Click += new System.EventHandler(PushToDeafen.Toggle);
+            this.btnPushToDeafenToggle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.btnPushToDeafenToggle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.btnPushToDeafenToggle.Clicked = false;
+            this.btnPushToDeafenToggle.ClickedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(206)))));
+            this.btnPushToDeafenToggle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPushToDeafenToggle.DisabledTextColor = System.Drawing.Color.DarkGray;
+            this.btnPushToDeafenToggle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPushToDeafenToggle.ForeColor = System.Drawing.Color.White;
+            this.btnPushToDeafenToggle.Location = new System.Drawing.Point(7, 352);
+            this.btnPushToDeafenToggle.Name = "btnPushToDeafenToggle";
+            this.btnPushToDeafenToggle.PushedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(206)))));
+            this.btnPushToDeafenToggle.Size = new System.Drawing.Size(380, 50);
+            this.btnPushToDeafenToggle.TabIndex = 0;
+            this.btnPushToDeafenToggle.Text = "Start";
+            this.btnPushToDeafenToggle.Click += new System.EventHandler(this.PushToDeafenToggle);
             #endregion
             #region page2 items
             // 
             // appListDropdown2
             //
-            Form1.appListDropdown2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            Form1.appListDropdown2.ForeColor = Color.White;
-            Form1.appListDropdown2.Location = new System.Drawing.Point(10, 10);
-            Form1.appListDropdown2.Name = "appListDropdown2";
-            Form1.appListDropdown2.Size = new System.Drawing.Size(264, 25);
-            Form1.appListDropdown2.TabIndex = 0;
-            Form1.appListDropdown2.SelectedIndexChanged += new System.EventHandler(this.appListDropdown2_SelectedIndexChanged);
+            this.appListDropdown2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.appListDropdown2.ForeColor = Color.White;
+            this.appListDropdown2.Location = new System.Drawing.Point(10, 10);
+            this.appListDropdown2.Name = "appListDropdown2";
+            this.appListDropdown2.Size = new System.Drawing.Size(264, 25);
+            this.appListDropdown2.TabIndex = 0;
+            this.appListDropdown2.SelectedIndexChanged += new System.EventHandler(this.appListDropdown2_SelectedIndexChanged);
             // 
             // appListDropdown3
             //
-            Form1.appListDropdown3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            Form1.appListDropdown3.ForeColor = Color.White;
-            Form1.appListDropdown3.Location = new System.Drawing.Point(10, 35);
-            Form1.appListDropdown3.Name = "appListDropdown3";
-            Form1.appListDropdown3.Size = new System.Drawing.Size(264, 25);
-            Form1.appListDropdown3.TabIndex = 0;
-            Form1.appListDropdown3.SelectedIndexChanged += new System.EventHandler(this.appListDropdown3_SelectedIndexChanged);
+            this.appListDropdown3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.appListDropdown3.ForeColor = Color.White;
+            this.appListDropdown3.Location = new System.Drawing.Point(10, 35);
+            this.appListDropdown3.Name = "appListDropdown3";
+            this.appListDropdown3.Size = new System.Drawing.Size(264, 25);
+            this.appListDropdown3.TabIndex = 0;
+            this.appListDropdown3.SelectedIndexChanged += new System.EventHandler(this.appListDropdown3_SelectedIndexChanged);
             // 
             // appListDropdown4
             //
-            Form1.appListDropdown4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            Form1.appListDropdown4.ForeColor = Color.White;
-            Form1.appListDropdown4.Location = new System.Drawing.Point(10, 60);
-            Form1.appListDropdown4.Name = "appListDropdown4";
-            Form1.appListDropdown4.Size = new System.Drawing.Size(264, 25);
-            Form1.appListDropdown4.TabIndex = 0;
-            Form1.appListDropdown4.SelectedIndexChanged += new System.EventHandler(this.appListDropdown4_SelectedIndexChanged);
+            this.appListDropdown4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.appListDropdown4.ForeColor = Color.White;
+            this.appListDropdown4.Location = new System.Drawing.Point(10, 60);
+            this.appListDropdown4.Name = "appListDropdown4";
+            this.appListDropdown4.Size = new System.Drawing.Size(264, 25);
+            this.appListDropdown4.TabIndex = 0;
+            this.appListDropdown4.SelectedIndexChanged += new System.EventHandler(this.appListDropdown4_SelectedIndexChanged);
             // 
             // appListDropdown5
             //
-            Form1.appListDropdown5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            Form1.appListDropdown5.ForeColor = Color.White;
-            Form1.appListDropdown5.Location = new System.Drawing.Point(10, 85);
-            Form1.appListDropdown5.Name = "appListDropdown5";
-            Form1.appListDropdown5.Size = new System.Drawing.Size(264, 25);
-            Form1.appListDropdown5.TabIndex = 0;
-            Form1.appListDropdown5.SelectedIndexChanged += new System.EventHandler(this.appListDropdown5_SelectedIndexChanged);
+            this.appListDropdown5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.appListDropdown5.ForeColor = Color.White;
+            this.appListDropdown5.Location = new System.Drawing.Point(10, 85);
+            this.appListDropdown5.Name = "appListDropdown5";
+            this.appListDropdown5.Size = new System.Drawing.Size(264, 25);
+            this.appListDropdown5.TabIndex = 0;
+            this.appListDropdown5.SelectedIndexChanged += new System.EventHandler(this.appListDropdown5_SelectedIndexChanged);
             // 
             // appListDropdown6
             //
-            Form1.appListDropdown6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            Form1.appListDropdown6.ForeColor = Color.White;
-            Form1.appListDropdown6.Location = new System.Drawing.Point(10, 110);
-            Form1.appListDropdown6.Name = "appListDropdown6";
-            Form1.appListDropdown6.Size = new System.Drawing.Size(264, 25);
-            Form1.appListDropdown6.TabIndex = 0;
-            Form1.appListDropdown6.SelectedIndexChanged += new System.EventHandler(this.appListDropdown6_SelectedIndexChanged);
+            this.appListDropdown6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.appListDropdown6.ForeColor = Color.White;
+            this.appListDropdown6.Location = new System.Drawing.Point(10, 110);
+            this.appListDropdown6.Name = "appListDropdown6";
+            this.appListDropdown6.Size = new System.Drawing.Size(264, 25);
+            this.appListDropdown6.TabIndex = 0;
+            this.appListDropdown6.SelectedIndexChanged += new System.EventHandler(this.appListDropdown6_SelectedIndexChanged);
             // 
             // appListDropdown7
             //
-            Form1.appListDropdown7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            Form1.appListDropdown7.ForeColor = Color.White;
-            Form1.appListDropdown7.Location = new System.Drawing.Point(10, 135);
-            Form1.appListDropdown7.Name = "appListDropdown7";
-            Form1.appListDropdown7.Size = new System.Drawing.Size(264, 25);
-            Form1.appListDropdown7.TabIndex = 0;
-            Form1.appListDropdown7.SelectedIndexChanged += new System.EventHandler(this.appListDropdown7_SelectedIndexChanged);
+            this.appListDropdown7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.appListDropdown7.ForeColor = Color.White;
+            this.appListDropdown7.Location = new System.Drawing.Point(10, 135);
+            this.appListDropdown7.Name = "appListDropdown7";
+            this.appListDropdown7.Size = new System.Drawing.Size(264, 25);
+            this.appListDropdown7.TabIndex = 0;
+            this.appListDropdown7.SelectedIndexChanged += new System.EventHandler(this.appListDropdown7_SelectedIndexChanged);
             // 
             // btnAppListRefresh2
             //
-            Form1.btnAppListRefresh2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            Form1.btnAppListRefresh2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            Form1.btnAppListRefresh2.Clicked = false;
-            Form1.btnAppListRefresh2.ClickedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(206)))));
-            Form1.btnAppListRefresh2.Cursor = System.Windows.Forms.Cursors.Hand;
-            Form1.btnAppListRefresh2.DisabledTextColor = System.Drawing.Color.DarkGray;
-            Form1.btnAppListRefresh2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            Form1.btnAppListRefresh2.ForeColor = System.Drawing.Color.White;
-            Form1.btnAppListRefresh2.Location = new System.Drawing.Point(280, 100);
-            Form1.btnAppListRefresh2.Name = "autoDeafenToggle";
-            Form1.btnAppListRefresh2.PushedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(206)))));
-            Form1.btnAppListRefresh2.Size = new System.Drawing.Size(75, 20);
-            Form1.btnAppListRefresh2.TabIndex = 0;
-            Form1.btnAppListRefresh2.Text = "Refresh";
-            Form1.btnAppListRefresh2.Click += new System.EventHandler(AudioManager.audioDevices);
+            this.btnAppListRefresh2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.btnAppListRefresh2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.btnAppListRefresh2.Clicked = false;
+            this.btnAppListRefresh2.ClickedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(206)))));
+            this.btnAppListRefresh2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAppListRefresh2.DisabledTextColor = System.Drawing.Color.DarkGray;
+            this.btnAppListRefresh2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAppListRefresh2.ForeColor = System.Drawing.Color.White;
+            this.btnAppListRefresh2.Location = new System.Drawing.Point(280, 100);
+            this.btnAppListRefresh2.Name = "autoDeafenToggle";
+            this.btnAppListRefresh2.PushedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(206)))));
+            this.btnAppListRefresh2.Size = new System.Drawing.Size(75, 20);
+            this.btnAppListRefresh2.TabIndex = 0;
+            this.btnAppListRefresh2.Text = "Refresh";
+            this.btnAppListRefresh2.Click += new System.EventHandler(this.audioDevices);
             // 
             // autoDeafenToggle
             //
-            Form1.btnAutoDeafenToggle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            Form1.btnAutoDeafenToggle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            Form1.btnAutoDeafenToggle.Clicked = false;
-            Form1.btnAutoDeafenToggle.ClickedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(206)))));
-            Form1.btnAutoDeafenToggle.Cursor = System.Windows.Forms.Cursors.Hand;
-            Form1.btnAutoDeafenToggle.DisabledTextColor = System.Drawing.Color.DarkGray;
-            Form1.btnAutoDeafenToggle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            Form1.btnAutoDeafenToggle.ForeColor = System.Drawing.Color.White;
-            Form1.btnAutoDeafenToggle.Location = new System.Drawing.Point(7, 352);
-            Form1.btnAutoDeafenToggle.Name = "autoDeafenToggle";
-            Form1.btnAutoDeafenToggle.PushedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(206)))));
-            Form1.btnAutoDeafenToggle.Size = new System.Drawing.Size(380, 50);
-            Form1.btnAutoDeafenToggle.TabIndex = 0;
-            Form1.btnAutoDeafenToggle.Text = "Start";
-            Form1.btnAutoDeafenToggle.Click += new System.EventHandler(AutoDeafen.Toggle);
+            this.btnAutoDeafenToggle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.btnAutoDeafenToggle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.btnAutoDeafenToggle.Clicked = false;
+            this.btnAutoDeafenToggle.ClickedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(206)))));
+            this.btnAutoDeafenToggle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAutoDeafenToggle.DisabledTextColor = System.Drawing.Color.DarkGray;
+            this.btnAutoDeafenToggle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAutoDeafenToggle.ForeColor = System.Drawing.Color.White;
+            this.btnAutoDeafenToggle.Location = new System.Drawing.Point(7, 352);
+            this.btnAutoDeafenToggle.Name = "autoDeafenToggle";
+            this.btnAutoDeafenToggle.PushedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(206)))));
+            this.btnAutoDeafenToggle.Size = new System.Drawing.Size(380, 50);
+            this.btnAutoDeafenToggle.TabIndex = 0;
+            this.btnAutoDeafenToggle.Text = "Start";
+            this.btnAutoDeafenToggle.Click += new System.EventHandler(AutoDeafenToggle);
             #endregion
             #region page3 items
 
@@ -461,22 +459,21 @@ namespace AfvCompanion
             this.Focus();
         }
 
-        #endregion
-        public static System.Windows.Forms.ComboBox appListDropdown;
-        public static System.Windows.Forms.ComboBox appListDropdown2;
-        public static System.Windows.Forms.ComboBox appListDropdown3;
-        public static System.Windows.Forms.ComboBox appListDropdown4;
-        public static System.Windows.Forms.ComboBox appListDropdown5;
-        public static System.Windows.Forms.ComboBox appListDropdown6;
-        public static System.Windows.Forms.ComboBox appListDropdown7;
+        private System.Windows.Forms.ComboBox appListDropdown;
+        private System.Windows.Forms.ComboBox appListDropdown2;
+        private System.Windows.Forms.ComboBox appListDropdown3;
+        private System.Windows.Forms.ComboBox appListDropdown4;
+        private System.Windows.Forms.ComboBox appListDropdown5;
+        private System.Windows.Forms.ComboBox appListDropdown6;
+        private System.Windows.Forms.ComboBox appListDropdown7;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        public static FlatButton btnAutoDeafenToggle;
-        public static FlatButton btnAppListRefresh;
-        public static FlatButton btnAppListRefresh2;
-        public static FlatButton btnPushToDeafenToggle;
+        private FlatButton btnAutoDeafenToggle;
+        private FlatButton btnAppListRefresh;
+        private FlatButton btnAppListRefresh2;
+        private FlatButton btnPushToDeafenToggle;
         private FlatButton btnClose;
-        public static FlatButton btnDisableAll;
+        private FlatButton btnDisableAll;
         private FlatButton btnMinimize;
         private FlatButton btnSettings;
         private FlatButton btnSetPTM;

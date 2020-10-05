@@ -69,7 +69,7 @@ namespace AfvCompanion
             AutoDeafenApplication3 = mConfig.AutoDeafenApplication3;
             AutoDeafenApplication4 = mConfig.AutoDeafenApplication4;
             AutoDeafenApplication5 = mConfig.AutoDeafenApplication5;
-            AudioManager.audioDevices(null, null);
+            audioDevices(null, null);
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -246,9 +246,9 @@ namespace AfvCompanion
             PushToDeafen.unMuteApplication();
             btnDisableAll.BackColor = System.Drawing.Color.Empty;
             if (PushToDeafen.run)
-                PushToDeafen.Toggle(null, null);
+                PushToDeafenToggle(null, null);
             if (AutoDeafen.run)
-                AutoDeafen.Toggle(null, null);
+                AutoDeafenToggle(null, null);
         }
         private void assignPTM_click(object sender, EventArgs e)
         {
@@ -518,6 +518,163 @@ namespace AfvCompanion
             mConfig.LoadConfig();
 
             AutoDeafenManager autoDeafenManager = new AutoDeafenManager(broker, mConfig);
+        }
+        public void audioDevices(object sender, EventArgs e)
+        {
+            Process[] processlist = Process.GetProcesses();
+
+            appListDropdown.Items.Clear();
+            appListDropdown2.Items.Clear();
+            appListDropdown3.Items.Clear();
+            appListDropdown4.Items.Clear();
+            appListDropdown5.Items.Clear();
+            appListDropdown6.Items.Clear();
+            appListDropdown7.Items.Clear();
+
+            appListDropdown2.Items.Add("Undefined");
+            appListDropdown3.Items.Add("Undefined");
+            appListDropdown4.Items.Add("None");
+            appListDropdown5.Items.Add("None");
+            appListDropdown6.Items.Add("None");
+            appListDropdown7.Items.Add("None");
+
+
+            foreach (Process process in processlist)
+            {
+                if (AudioManager.GetApplicationVolume(process.Id) != null)
+                {
+                    Debug.WriteLine(process.ProcessName + " # " + process.Id);
+                    appListDropdown.Items.Add(process.ProcessName);
+                    appListDropdown2.Items.Add(process.ProcessName);
+                    appListDropdown3.Items.Add(process.ProcessName);
+                    appListDropdown4.Items.Add(process.ProcessName);
+                    appListDropdown5.Items.Add(process.ProcessName);
+                    appListDropdown6.Items.Add(process.ProcessName);
+                    appListDropdown7.Items.Add(process.ProcessName);
+                }
+            }
+
+            try { appListDropdown.SelectedIndex = appListDropdown.Items.IndexOf(PTMApplicationName); }
+            catch { appListDropdown.SelectedIndex = 0; }
+            try { appListDropdown2.SelectedIndex = appListDropdown2.Items.IndexOf(AutoDeafenApplicationName); }
+            catch { appListDropdown2.SelectedIndex = 0; }
+            try { appListDropdown3.SelectedIndex = appListDropdown3.Items.IndexOf(AutoDeafenApplication1); }
+            catch { appListDropdown3.SelectedIndex = 0; }
+            try { appListDropdown4.SelectedIndex = appListDropdown4.Items.IndexOf(AutoDeafenApplication2); }
+            catch { appListDropdown4.SelectedIndex = 0; }
+            try { appListDropdown5.SelectedIndex = appListDropdown5.Items.IndexOf(AutoDeafenApplication3); }
+            catch { appListDropdown5.SelectedIndex = 0; }
+            try { appListDropdown6.SelectedIndex = appListDropdown6.Items.IndexOf(AutoDeafenApplication4); }
+            catch { appListDropdown6.SelectedIndex = 0; }
+            try { appListDropdown7.SelectedIndex = appListDropdown7.Items.IndexOf(AutoDeafenApplication5); }
+            catch { appListDropdown7.SelectedIndex = 0; }
+        }
+        public void PushToDeafenToggle(object sender, EventArgs e)
+        {
+            if (PushToDeafen.run)
+            {
+                PushToDeafen.run = false;
+                if (AutoDeafen.run == false && AutoVolume.run == false)
+                {
+                    btnDisableAll.BackColor = System.Drawing.Color.Empty;
+
+                }
+                btnPushToDeafenToggle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+                btnPushToDeafenToggle.Text = "Start";
+                PtmManager.mPtmTimer.Stop();
+            }
+            else if (PushToDeafen.run == false)
+            {
+                PushToDeafen.run = true;
+                btnDisableAll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(206)))));
+                btnPushToDeafenToggle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(206)))));
+                btnPushToDeafenToggle.Text = "Stop";
+                PtmManager.mPtmTimer.Start();
+            }
+        }
+        public void AutoDeafenToggle(object sender, EventArgs e)
+        {
+            if (AutoDeafen.run)
+            {
+                AutoDeafen.run = false;
+                if (PushToDeafen.run == false && AutoVolume.run == false)
+                {
+                    btnDisableAll.BackColor = System.Drawing.Color.Empty;
+
+                }
+                try { AudioManager.SetApplicationVolume(AutoDeafen.AutoDeafenApplicationPid1, AutoDeafen.appOriginalVol1); }
+                catch { }
+                try { AudioManager.SetApplicationVolume(AutoDeafen.AutoDeafenApplicationPid2, AutoDeafen.appOriginalVol2); }
+                catch { }
+                try { AudioManager.SetApplicationVolume(AutoDeafen.AutoDeafenApplicationPid3, AutoDeafen.appOriginalVol3); }
+                catch { }
+                try { AudioManager.SetApplicationVolume(AutoDeafen.AutoDeafenApplicationPid4, AutoDeafen.appOriginalVol4); }
+                catch { }
+                try { AudioManager.SetApplicationVolume(AutoDeafen.AutoDeafenApplicationPid5, AutoDeafen.appOriginalVol5); }
+                catch { }
+                btnAutoDeafenToggle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+                btnAutoDeafenToggle.Text = "Start";
+                AutoDeafenManager.mOutputTimer.Stop();
+            }
+            else if (AutoDeafen.run == false)
+            {
+                if (AutoDeafenApplication1 == "Undefined")
+                {
+                    var result = MessageBox.Show("Error: You must define one or more application to deafen", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                if (AutoDeafenApplicationName == "Undefined")
+                {
+                    var result = MessageBox.Show("Error: You must define a listener application", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                AutoDeafen.run = true;
+
+                try { AutoDeafen.AutoDeafenApplicationPid1 = Process.GetProcessesByName(AutoDeafenApplication1)[0].Id; }
+                catch { }
+                try { AutoDeafen.AutoDeafenApplicationPid2 = Process.GetProcessesByName(AutoDeafenApplication2)[0].Id; }
+                catch { }
+                try { AutoDeafen.AutoDeafenApplicationPid3 = Process.GetProcessesByName(AutoDeafenApplication3)[0].Id; }
+                catch { }
+                try { AutoDeafen.AutoDeafenApplicationPid4 = Process.GetProcessesByName(AutoDeafenApplication4)[0].Id; }
+                catch { }
+                try { AutoDeafen.AutoDeafenApplicationPid5 = Process.GetProcessesByName(AutoDeafenApplication5)[0].Id; }
+                catch { }
+
+                try { AutoDeafen.appOriginalVol1 = AudioManager.GetApplicationVolume(AutoDeafen.AutoDeafenApplicationPid1) / 100; }
+                catch { }
+                try { AutoDeafen.appOriginalVol2 = AudioManager.GetApplicationVolume(AutoDeafen.AutoDeafenApplicationPid1) / 100; }
+                catch { }
+                try { AutoDeafen.appOriginalVol3 = AudioManager.GetApplicationVolume(AutoDeafen.AutoDeafenApplicationPid3) / 100; }
+                catch { }
+                try { AutoDeafen.appOriginalVol4 = AudioManager.GetApplicationVolume(AutoDeafen.AutoDeafenApplicationPid4) / 100; }
+                catch { }
+                try { AutoDeafen.appOriginalVol5 = AudioManager.GetApplicationVolume(AutoDeafen.AutoDeafenApplicationPid5) / 100; }
+                catch { }
+
+
+                btnDisableAll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(206)))));
+                btnAutoDeafenToggle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(206)))));
+                btnAutoDeafenToggle.Text = "Stop";
+                AutoDeafenManager.mOutputTimer.Start();
+            }
+        }
+        public void AutoVolumeToggle(object sender, EventArgs e)
+        {
+            if (AutoVolume.run)
+            {
+                AutoVolume.run = false;
+                if (AutoDeafen.run == false && PushToDeafen.run == false)
+                {
+                    btnDisableAll.BackColor = System.Drawing.Color.Empty;
+                }
+            }
+            else if (AutoVolume.run == false)
+            {
+                AutoVolume.run = true;
+                btnDisableAll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(206)))));
+            }
+
         }
     }
 }
