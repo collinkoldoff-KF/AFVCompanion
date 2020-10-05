@@ -17,7 +17,8 @@ namespace AfvCompanion
         [STAThread]
         static void Main()
         {
-            Application.SetHighDpiMode(HighDpiMode.SystemAware);
+            //if (Environment.OSVersion.Version.Major & gt;= 6)
+            SetProcessDPIAware();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
@@ -54,5 +55,7 @@ namespace AfvCompanion
             Application.Run(new Form1());
             kernel.Dispose();
         }
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        private static extern bool SetProcessDPIAware();
     }
 }
