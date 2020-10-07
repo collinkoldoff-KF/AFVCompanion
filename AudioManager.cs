@@ -14,34 +14,27 @@ namespace AfvCompanion
             if (volume == null)
                 return null;
 
-            float level;
-            volume.GetMasterVolume(out level);
+            volume.GetMasterVolume(out float level);
             Marshal.ReleaseComObject(volume);
             return level * 100;
         }
         private static ISimpleAudioVolume GetVolumeObject(int? pid)
         {
             IMMDeviceEnumerator deviceEnumerator = MMDeviceEnumeratorFactory.CreateInstance();
-            IMMDevice speakers;
-            deviceEnumerator.GetDefaultAudioEndpoint(EDataFlow.eRender, ERole.eMultimedia, out speakers);
+            deviceEnumerator.GetDefaultAudioEndpoint(EDataFlow.eRender, ERole.eMultimedia, out IMMDevice speakers);
 
             Guid IID_IAudioSessionManager2 = typeof(IAudioSessionManager2).GUID;
-            object o;
-            speakers.Activate(ref IID_IAudioSessionManager2, 0, IntPtr.Zero, out o);
+            speakers.Activate(ref IID_IAudioSessionManager2, 0, IntPtr.Zero, out object o);
             IAudioSessionManager2 mgr = (IAudioSessionManager2)o;
 
-            IAudioSessionEnumerator sessionEnumerator;
-            mgr.GetSessionEnumerator(out sessionEnumerator);
-            int count;
-            sessionEnumerator.GetCount(out count);
+            mgr.GetSessionEnumerator(out IAudioSessionEnumerator sessionEnumerator);
+            sessionEnumerator.GetCount(out int count);
 
             ISimpleAudioVolume volumeControl = null;
             for (int i = 0; i < count; i++)
             {
-                IAudioSessionControl2 ctl;
-                sessionEnumerator.GetSession(i, out ctl);
-                int cpid;
-                ctl.GetProcessId(out cpid);
+                sessionEnumerator.GetSession(i, out IAudioSessionControl2 ctl);
+                ctl.GetProcessId(out int cpid);
 
                 if (cpid == pid)
                 {
@@ -70,13 +63,11 @@ namespace AfvCompanion
                     deviceEnumerator.GetDefaultAudioEndpoint(EDataFlow.eRender, ERole.eMultimedia, out speakers);
 
                     Guid IID_IAudioSessionManager2 = typeof(IAudioSessionManager2).GUID;
-                    object o;
-                    speakers.Activate(ref IID_IAudioSessionManager2, 0, IntPtr.Zero, out o);
+                    speakers.Activate(ref IID_IAudioSessionManager2, 0, IntPtr.Zero, out object o);
                     mgr = (IAudioSessionManager2)o;
 
                     mgr.GetSessionEnumerator(out sessionEnumerator);
-                    int count;
-                    sessionEnumerator.GetCount(out count);
+                    sessionEnumerator.GetCount(out int count);
 
                     ISimpleAudioVolume volumeControl = null;
                     for (int i = 0; i < count; ++i)
@@ -86,8 +77,7 @@ namespace AfvCompanion
                         {
                             sessionEnumerator.GetSession(i, out ctl);
 
-                            int cpid;
-                            ctl.GetProcessId(out cpid);
+                            ctl.GetProcessId(out int cpid);
 
                             if (cpid == pid)
                             {
@@ -129,13 +119,11 @@ namespace AfvCompanion
                 deviceEnumerator.GetDefaultAudioEndpoint(EDataFlow.eRender, ERole.eMultimedia, out speakers);
 
                 Guid IID_IAudioSessionManager2 = typeof(IAudioSessionManager2).GUID;
-                object o;
-                speakers.Activate(ref IID_IAudioSessionManager2, 0, IntPtr.Zero, out o);
+                speakers.Activate(ref IID_IAudioSessionManager2, 0, IntPtr.Zero, out object o);
                 mgr = (IAudioSessionManager2)o;
 
                 mgr.GetSessionEnumerator(out sessionEnumerator);
-                int count;
-                sessionEnumerator.GetCount(out count);
+                sessionEnumerator.GetCount(out int count);
 
                 ISimpleAudioVolume volumeControl = null;
                 for (int i = 0; i < count; ++i)
@@ -145,8 +133,7 @@ namespace AfvCompanion
                     {
                         sessionEnumerator.GetSession(i, out ctl);
 
-                        int cpid;
-                        ctl.GetProcessId(out cpid);
+                        ctl.GetProcessId(out int cpid);
 
                         if (cpid == pid)
                         {

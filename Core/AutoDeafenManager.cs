@@ -29,24 +29,20 @@ namespace AfvCompanion.Core
         {
             using (var sessionManager = GetDefaultAudioSessionManager2(DataFlow.Render))
             {
-                using (var sessionEnumerator = sessionManager.GetSessionEnumerator())
+                using var sessionEnumerator = sessionManager.GetSessionEnumerator();
+                foreach (var session in sessionEnumerator)
                 {
-                    foreach (var session in sessionEnumerator)
+                    using var audioMeterInformation = session.QueryInterface<AudioMeterInformation>();
+                    using var session2 = session.QueryInterface<AudioSessionControl2>();
+                    if (session2.ProcessID == pid)
                     {
-                        using (var audioMeterInformation = session.QueryInterface<AudioMeterInformation>())
-                        using (var session2 = session.QueryInterface<AudioSessionControl2>())
+                        if (audioMeterInformation.GetPeakValue() > 0.0001)
                         {
-                            if (session2.ProcessID == pid)
-                            {
-                                if (audioMeterInformation.GetPeakValue() > 0.0001)
-                                {
-                                    return true;
-                                } 
-                                else
-                                {
-                                    return false;
-                                }
-                            } 
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
                         }
                     }
                 }
@@ -110,14 +106,10 @@ namespace AfvCompanion.Core
 
         private static AudioSessionManager2 GetDefaultAudioSessionManager2(DataFlow dataFlow)
         {
-            using (CSCore.CoreAudioAPI.MMDeviceEnumerator enumerator = new CSCore.CoreAudioAPI.MMDeviceEnumerator())
-            {
-                using (var device = enumerator.GetDefaultAudioEndpoint(dataFlow, Role.Multimedia))
-                {
-                    var sessionManager = AudioSessionManager2.FromMMDevice(device);
-                    return sessionManager;
-                }
-            }
+            using CSCore.CoreAudioAPI.MMDeviceEnumerator enumerator = new CSCore.CoreAudioAPI.MMDeviceEnumerator();
+            using var device = enumerator.GetDefaultAudioEndpoint(dataFlow, Role.Multimedia);
+            var sessionManager = AudioSessionManager2.FromMMDevice(device);
+            return sessionManager;
         }
     }
 

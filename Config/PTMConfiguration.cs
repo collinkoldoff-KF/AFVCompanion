@@ -52,18 +52,13 @@ namespace AfvCompanion.Config
 
         public override string ToString()
         {
-            switch (DeviceType)
+            return DeviceType switch
             {
-                case PTMDeviceType.Keyboard:
-                    return $"Keyboard: { (Keys)ButtonOrKey }";
-                case PTMDeviceType.Joystick:
-                    return $"Joystick Button { ButtonOrKey + 1 } on { Name }";
-                case PTMDeviceType.Mouse:
-                    return $"Mouse Button { (MouseButtons)ButtonOrKey}";
-                case PTMDeviceType.None:
-                default:
-                    return "None";
-            }
+                PTMDeviceType.Keyboard => $"Keyboard: { (Keys)ButtonOrKey }",
+                PTMDeviceType.Joystick => $"Joystick Button { ButtonOrKey + 1 } on { Name }",
+                PTMDeviceType.Mouse => $"Mouse Button { (MouseButtons)ButtonOrKey}",
+                _ => "None",
+            };
         }
 
         public bool Equals(PTMConfiguration other)

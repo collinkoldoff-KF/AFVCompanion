@@ -604,8 +604,7 @@ namespace AfvCompanion
             IEventBroker broker = kernel.Get<IEventBroker>();
 
             mConfig.LoadConfig();
-
-            PtmManager ptmManager = new PtmManager(broker, mConfig);
+            _ = new PtmManager(broker, mConfig);
         }
         public void ReloadAutoDeafenManager()
         {
@@ -613,8 +612,7 @@ namespace AfvCompanion
             IEventBroker broker = kernel.Get<IEventBroker>();
 
             mConfig.LoadConfig();
-
-            AutoDeafenManager autoDeafenManager = new AutoDeafenManager(broker, mConfig);
+            _ = new AutoDeafenManager(broker, mConfig);
         }
         public void audioDevices(object sender, EventArgs e)
         {
@@ -721,7 +719,7 @@ namespace AfvCompanion
                         checkBox2.Checked = false;
                         return;
                     }
-                    var result = MessageBox.Show("Error: You must define one or more application to deafen", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Error: You must define one or more application to deafen", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 if (AutoDeafenApplicationName == "Undefined")
@@ -732,7 +730,7 @@ namespace AfvCompanion
                         checkBox2.Checked = false;
                         return;
                     }
-                    var result = MessageBox.Show("Error: You must define a listener application", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Error: You must define a listener application", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 AutoDeafen.run = true;
