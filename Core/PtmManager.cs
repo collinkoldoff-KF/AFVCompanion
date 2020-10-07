@@ -4,6 +4,7 @@ using Appccelerate.EventBroker;
 using SharpDX;
 using SharpDX.DirectInput;
 using System;
+using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
@@ -101,11 +102,12 @@ namespace AfvCompanion.Core
                 if (mPtmStatus)
                 {
                     if (PushToDeafen.run)
-                        PushToDeafen.muteApplication();
+                        Debug.WriteLine(Form1.PTMApplicationPid);
+                        AudioManager.SetApplicationMute(Form1.PTMApplicationPid, true);
                 }
                 else
                 {
-                    PushToDeafen.unMuteApplication();
+                    AudioManager.SetApplicationMute(Form1.PTMApplicationPid, false);
                 }
 
                 PushToMuteStateChanged?.Invoke(this, new PushToMuteStateChangedEventArgs(mPtmStatus));

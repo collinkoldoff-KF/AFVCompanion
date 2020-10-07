@@ -20,7 +20,7 @@ namespace AfvCompanion.Config
         public string AutoDeafenApplication3 { get; set; }
         public string AutoDeafenApplication4 { get; set; }
         public string AutoDeafenApplication5 { get; set; }
-
+        public float AppVolume { get; set; } = 0.2f;
 
         public AppConfig()
         {

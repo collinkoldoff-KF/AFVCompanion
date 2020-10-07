@@ -11,6 +11,7 @@
         public string AutoDeafenApplication3 { get; set; }
         public string AutoDeafenApplication4 { get; set; }
         public string AutoDeafenApplication5 { get; set; }
+        float AppVolume { get; set; }
 
         void SaveConfig();
         void LoadConfig(string path);

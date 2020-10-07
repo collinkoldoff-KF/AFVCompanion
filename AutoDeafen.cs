@@ -8,6 +8,7 @@ namespace AfvCompanion
     class AutoDeafen
     {
         public static bool run = false;
+
         public static float? appOriginalVol1 = null;
         public static float? appOriginalVol2 = null;
         public static float? appOriginalVol3 = null;
@@ -19,7 +20,5 @@ namespace AfvCompanion
         public static int? AutoDeafenApplicationPid3 = null;
         public static int? AutoDeafenApplicationPid4 = null;
         public static int? AutoDeafenApplicationPid5 = null;
-
-        
     }
 }

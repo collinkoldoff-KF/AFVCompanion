@@ -12,10 +12,11 @@ namespace AfvCompanion.Core
     {
         private readonly IAppConfig mConfig;
         public static System.Windows.Forms.Timer mOutputTimer;
-        private bool mOutput;
+        public static bool mOutput;
 
         public AutoDeafenManager(IEventBroker broker, IAppConfig config) : base(broker)
         {
+            mConfig = config;
             mOutputTimer = new System.Windows.Forms.Timer
             {
                 Interval = 10
@@ -58,7 +59,8 @@ namespace AfvCompanion.Core
             CheckOutput();
             if (AutoDeafen.run == false)
             {
-                mOutputTimer.Stop();
+                mOutput = false;
+                //mOutputTimer.Stop();
             }
         }
 
@@ -73,7 +75,7 @@ namespace AfvCompanion.Core
                     mOutput = output;
                     if (output)
                     {
-                        float volume = 0.50f;
+                        float volume = mConfig.AppVolume;
                         try { AudioManager.SetApplicationVolume(AutoDeafen.AutoDeafenApplicationPid1, volume); }
                         catch { }
                         try { AudioManager.SetApplicationVolume(AutoDeafen.AutoDeafenApplicationPid2, volume); }
