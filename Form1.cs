@@ -76,9 +76,10 @@ namespace AfvCompanion
             AutoDeafenApplication4 = mConfig.AutoDeafenApplication4;
             AutoDeafenApplication5 = mConfig.AutoDeafenApplication5;
             appVolume.Value = (int)(mConfig.AppVolume * 100);
-            label1.Text = appVolume.Value + "%";
+            volumeLabel.Text = appVolume.Value + "%";
             checkBox1.Checked = mConfig.PTMAutoRun;
             checkBox2.Checked = mConfig.AutoDeafenAutoRun;
+            ptmBtnLabel.Text = mConfig.PTMConfiguration.ToString();
             if (mConfig.PTMAutoRun)
                 PushToDeafenToggle(null, null);
             if (mConfig.AutoDeafenAutoRun)
@@ -112,14 +113,14 @@ namespace AfvCompanion
         private void appListDropdown_SelectedIndexChanged(object sender, EventArgs e)
         {
             mConfig.LoadConfig();
-            mConfig.PTMApplication = appListDropdown.SelectedItem.ToString();
+            mConfig.PTMApplication = ptmAppListDropdown.SelectedItem.ToString();
             mConfig.SaveConfig();
 
-            foreach (Process process in Process.GetProcessesByName(appListDropdown.SelectedItem.ToString()))
+            foreach (Process process in Process.GetProcessesByName(ptmAppListDropdown.SelectedItem.ToString()))
             {
                 if (AudioManager.GetApplicationVolume(process.Id) != null)
                 {
-                    if (process.ProcessName == appListDropdown.SelectedItem.ToString())
+                    if (process.ProcessName == ptmAppListDropdown.SelectedItem.ToString())
                     {
                         PTMApplicationPid = process.Id;
                     }
@@ -130,15 +131,15 @@ namespace AfvCompanion
         private void appListDropdown2_SelectedIndexChanged(object sender, EventArgs e)
         {
             mConfig.LoadConfig();
-            mConfig.AutoDeafenApplication = appListDropdown2.SelectedItem.ToString();
+            mConfig.AutoDeafenApplication = autoDeafenListenerDropdown1.SelectedItem.ToString();
             mConfig.SaveConfig();
             if (AutoDeafen.run)
                 AutoDeafenToggle(null, null);
-            foreach (Process process in Process.GetProcessesByName(appListDropdown2.SelectedItem.ToString()))
+            foreach (Process process in Process.GetProcessesByName(autoDeafenListenerDropdown1.SelectedItem.ToString()))
             {
                 if (AudioManager.GetApplicationVolume(process.Id) != null)
                 {
-                    if (process.ProcessName == appListDropdown2.SelectedItem.ToString())
+                    if (process.ProcessName == autoDeafenListenerDropdown1.SelectedItem.ToString())
                     {
                         AutoDeafenApplicationPid = process.Id;
                     }
@@ -150,15 +151,15 @@ namespace AfvCompanion
             try
             {
                 mConfig.LoadConfig();
-                mConfig.AutoDeafenApplication1 = appListDropdown3.SelectedItem.ToString();
+                mConfig.AutoDeafenApplication1 = autoDeafenAppDropdown1.SelectedItem.ToString();
                 mConfig.SaveConfig();
                 if (AutoDeafen.run)
                     AutoDeafenToggle(null, null);
-                foreach (Process process in Process.GetProcessesByName(appListDropdown3.SelectedItem.ToString()))
+                foreach (Process process in Process.GetProcessesByName(autoDeafenAppDropdown1.SelectedItem.ToString()))
                 {
                     if (AudioManager.GetApplicationVolume(process.Id) != null)
                     {
-                        if (process.ProcessName == appListDropdown3.SelectedItem.ToString())
+                        if (process.ProcessName == autoDeafenAppDropdown1.SelectedItem.ToString())
                         {
                             AutoDeafen.AutoDeafenApplicationPid1 = process.Id;
                         }
@@ -172,15 +173,15 @@ namespace AfvCompanion
             try
             {
                 mConfig.LoadConfig();
-                mConfig.AutoDeafenApplication2 = appListDropdown4.SelectedItem.ToString();
+                mConfig.AutoDeafenApplication2 = autoDeafenAppDropdown2.SelectedItem.ToString();
                 mConfig.SaveConfig();
                 if (AutoDeafen.run)
                     AutoDeafenToggle(null, null);
-                foreach (Process process in Process.GetProcessesByName(appListDropdown4.SelectedItem.ToString()))
+                foreach (Process process in Process.GetProcessesByName(autoDeafenAppDropdown2.SelectedItem.ToString()))
                 {
                     if (AudioManager.GetApplicationVolume(process.Id) != null)
                     {
-                        if (process.ProcessName == appListDropdown4.SelectedItem.ToString())
+                        if (process.ProcessName == autoDeafenAppDropdown2.SelectedItem.ToString())
                         {
                             AutoDeafen.AutoDeafenApplicationPid2 = process.Id;
                         }
@@ -194,15 +195,15 @@ namespace AfvCompanion
             try
             {
                 mConfig.LoadConfig();
-                mConfig.AutoDeafenApplication3 = appListDropdown5.SelectedItem.ToString();
+                mConfig.AutoDeafenApplication3 = autoDeafenAppDropdown3.SelectedItem.ToString();
                 mConfig.SaveConfig();
                 if (AutoDeafen.run)
                     AutoDeafenToggle(null, null);
-                foreach (Process process in Process.GetProcessesByName(appListDropdown5.SelectedItem.ToString()))
+                foreach (Process process in Process.GetProcessesByName(autoDeafenAppDropdown3.SelectedItem.ToString()))
                 {
                     if (AudioManager.GetApplicationVolume(process.Id) != null)
                     {
-                        if (process.ProcessName == appListDropdown5.SelectedItem.ToString())
+                        if (process.ProcessName == autoDeafenAppDropdown3.SelectedItem.ToString())
                         {
                             AutoDeafen.AutoDeafenApplicationPid3 = process.Id;
                         }
@@ -216,15 +217,15 @@ namespace AfvCompanion
             try
             {
                 mConfig.LoadConfig();
-                mConfig.AutoDeafenApplication4 = appListDropdown6.SelectedItem.ToString();
+                mConfig.AutoDeafenApplication4 = autoDeafenAppDropdown4.SelectedItem.ToString();
                 mConfig.SaveConfig();
                 if (AutoDeafen.run)
                     AutoDeafenToggle(null, null);
-                foreach (Process process in Process.GetProcessesByName(appListDropdown6.SelectedItem.ToString()))
+                foreach (Process process in Process.GetProcessesByName(autoDeafenAppDropdown4.SelectedItem.ToString()))
                 {
                     if (AudioManager.GetApplicationVolume(process.Id) != null)
                     {
-                        if (process.ProcessName == appListDropdown6.SelectedItem.ToString())
+                        if (process.ProcessName == autoDeafenAppDropdown4.SelectedItem.ToString())
                         {
                             AutoDeafen.AutoDeafenApplicationPid4 = process.Id;
                         }
@@ -238,15 +239,15 @@ namespace AfvCompanion
             try
             {
                 mConfig.LoadConfig();
-                mConfig.AutoDeafenApplication5 = appListDropdown7.SelectedItem.ToString();
+                mConfig.AutoDeafenApplication5 = autoDeafenAppDropdown5.SelectedItem.ToString();
                 mConfig.SaveConfig();
                 if (AutoDeafen.run)
                     AutoDeafenToggle(null, null);
-                foreach (Process process in Process.GetProcessesByName(appListDropdown7.SelectedItem.ToString()))
+                foreach (Process process in Process.GetProcessesByName(autoDeafenAppDropdown5.SelectedItem.ToString()))
                 {
                     if (AudioManager.GetApplicationVolume(process.Id) != null)
                     {
-                        if (process.ProcessName == appListDropdown7.SelectedItem.ToString())
+                        if (process.ProcessName == autoDeafenAppDropdown5.SelectedItem.ToString())
                         {
                             AutoDeafen.AutoDeafenApplicationPid5 = process.Id;
                         }
@@ -259,13 +260,13 @@ namespace AfvCompanion
         private void Form1_Load(object sender, EventArgs e)
         {
             mNewPtmConfiguration = mConfig.PTMConfiguration;
-            if (appListDropdown.SelectedItem != null)
+            if (ptmAppListDropdown.SelectedItem != null)
             {
-                foreach (Process process in Process.GetProcessesByName(appListDropdown.SelectedItem.ToString()))
+                foreach (Process process in Process.GetProcessesByName(ptmAppListDropdown.SelectedItem.ToString()))
                 {
                     if (AudioManager.GetApplicationVolume(process.Id) != null)
                     {
-                        if (process.ProcessName == appListDropdown.SelectedItem.ToString())
+                        if (process.ProcessName == ptmAppListDropdown.SelectedItem.ToString())
                         {
                             PTMApplicationPid = process.Id;
                         }
@@ -401,19 +402,19 @@ namespace AfvCompanion
             if (mScanning)
             {
                 btnSetPTM.Text = "Cancel";
-                label3.Text = "Waiting for button or key press...";
+                ptmBtnLabel.Text = "Waiting for button or key press...";
             }
             else
             {
                 if (mNewPtmConfiguration != null)
                 {
                     btnSetPTM.Text = "Set New PTM Key or Button";
-                    label3.Text = mNewPtmConfiguration.ToString();
+                    ptmBtnLabel.Text = mNewPtmConfiguration.ToString();
                 }
                 else
                 {
                     btnSetPTM.Text = "Set New PTM Key or Button";
-                    label3.Text = mNewPtmConfiguration.ToString();
+                    ptmBtnLabel.Text = mNewPtmConfiguration.ToString();
                 }
             }
             Application.DoEvents();
@@ -617,20 +618,20 @@ namespace AfvCompanion
         public void audioDevices(object sender, EventArgs e)
         {
             GetProcesses();
-            appListDropdown.Items.Clear();
-            appListDropdown2.Items.Clear();
-            appListDropdown3.Items.Clear();
-            appListDropdown4.Items.Clear();
-            appListDropdown5.Items.Clear();
-            appListDropdown6.Items.Clear();
-            appListDropdown7.Items.Clear();
+            ptmAppListDropdown.Items.Clear();
+            autoDeafenListenerDropdown1.Items.Clear();
+            autoDeafenAppDropdown1.Items.Clear();
+            autoDeafenAppDropdown2.Items.Clear();
+            autoDeafenAppDropdown3.Items.Clear();
+            autoDeafenAppDropdown4.Items.Clear();
+            autoDeafenAppDropdown5.Items.Clear();
 
-            appListDropdown2.Items.Add("Undefined");
-            appListDropdown3.Items.Add("Undefined");
-            appListDropdown4.Items.Add("None");
-            appListDropdown5.Items.Add("None");
-            appListDropdown6.Items.Add("None");
-            appListDropdown7.Items.Add("None");
+            autoDeafenListenerDropdown1.Items.Add("Undefined");
+            autoDeafenAppDropdown1.Items.Add("Undefined");
+            autoDeafenAppDropdown2.Items.Add("None");
+            autoDeafenAppDropdown3.Items.Add("None");
+            autoDeafenAppDropdown4.Items.Add("None");
+            autoDeafenAppDropdown5.Items.Add("None");
 
 
             foreach (Process process in processlist)
@@ -638,30 +639,30 @@ namespace AfvCompanion
                 if (AudioManager.GetApplicationVolume(process.Id) != null)
                 {
                     Debug.WriteLine(process.ProcessName + " # " + process.Id);
-                    appListDropdown.Items.Add(process.ProcessName);
-                    appListDropdown2.Items.Add(process.ProcessName);
-                    appListDropdown3.Items.Add(process.ProcessName);
-                    appListDropdown4.Items.Add(process.ProcessName);
-                    appListDropdown5.Items.Add(process.ProcessName);
-                    appListDropdown6.Items.Add(process.ProcessName);
-                    appListDropdown7.Items.Add(process.ProcessName);
+                    ptmAppListDropdown.Items.Add(process.ProcessName);
+                    autoDeafenListenerDropdown1.Items.Add(process.ProcessName);
+                    autoDeafenAppDropdown1.Items.Add(process.ProcessName);
+                    autoDeafenAppDropdown2.Items.Add(process.ProcessName);
+                    autoDeafenAppDropdown3.Items.Add(process.ProcessName);
+                    autoDeafenAppDropdown4.Items.Add(process.ProcessName);
+                    autoDeafenAppDropdown5.Items.Add(process.ProcessName);
                 }
             }
 
-            try { appListDropdown.SelectedIndex = appListDropdown.Items.IndexOf(PTMApplicationName); }
-            catch { appListDropdown.SelectedIndex = 0; }
-            try { appListDropdown2.SelectedIndex = appListDropdown2.Items.IndexOf(AutoDeafenApplicationName); }
-            catch { appListDropdown2.SelectedIndex = 0; }
-            try { appListDropdown3.SelectedIndex = appListDropdown3.Items.IndexOf(AutoDeafenApplication1); }
-            catch { appListDropdown3.SelectedIndex = 0; }
-            try { appListDropdown4.SelectedIndex = appListDropdown4.Items.IndexOf(AutoDeafenApplication2); }
-            catch { appListDropdown4.SelectedIndex = 0; }
-            try { appListDropdown5.SelectedIndex = appListDropdown5.Items.IndexOf(AutoDeafenApplication3); }
-            catch { appListDropdown5.SelectedIndex = 0; }
-            try { appListDropdown6.SelectedIndex = appListDropdown6.Items.IndexOf(AutoDeafenApplication4); }
-            catch { appListDropdown6.SelectedIndex = 0; }
-            try { appListDropdown7.SelectedIndex = appListDropdown7.Items.IndexOf(AutoDeafenApplication5); }
-            catch { appListDropdown7.SelectedIndex = 0; }
+            try { ptmAppListDropdown.SelectedIndex = ptmAppListDropdown.Items.IndexOf(PTMApplicationName); }
+            catch { ptmAppListDropdown.SelectedIndex = 0; }
+            try { autoDeafenListenerDropdown1.SelectedIndex = autoDeafenListenerDropdown1.Items.IndexOf(AutoDeafenApplicationName); }
+            catch { autoDeafenListenerDropdown1.SelectedIndex = 0; }
+            try { autoDeafenAppDropdown1.SelectedIndex = autoDeafenAppDropdown1.Items.IndexOf(AutoDeafenApplication1); }
+            catch { autoDeafenAppDropdown1.SelectedIndex = 0; }
+            try { autoDeafenAppDropdown2.SelectedIndex = autoDeafenAppDropdown2.Items.IndexOf(AutoDeafenApplication2); }
+            catch { autoDeafenAppDropdown2.SelectedIndex = 0; }
+            try { autoDeafenAppDropdown3.SelectedIndex = autoDeafenAppDropdown3.Items.IndexOf(AutoDeafenApplication3); }
+            catch { autoDeafenAppDropdown3.SelectedIndex = 0; }
+            try { autoDeafenAppDropdown4.SelectedIndex = autoDeafenAppDropdown4.Items.IndexOf(AutoDeafenApplication4); }
+            catch { autoDeafenAppDropdown4.SelectedIndex = 0; }
+            try { autoDeafenAppDropdown5.SelectedIndex = autoDeafenAppDropdown5.Items.IndexOf(AutoDeafenApplication5); }
+            catch { autoDeafenAppDropdown5.SelectedIndex = 0; }
         }
         public void PushToDeafenToggle(object sender, EventArgs e)
         {
@@ -778,7 +779,7 @@ namespace AfvCompanion
         private void appVolume_Scroll(object sender, EventArgs e)
         {
             mConfig.AppVolume = (float)appVolume.Value / 100;
-            label1.Text = appVolume.Value + "%";
+            volumeLabel.Text = appVolume.Value + "%";
             mConfig.SaveConfig();
         }
 

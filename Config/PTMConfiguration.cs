@@ -54,7 +54,7 @@ namespace AfvCompanion.Config
         {
             return DeviceType switch
             {
-                PTMDeviceType.Keyboard => $"Keyboard: { (Keys)ButtonOrKey }",
+                PTMDeviceType.Keyboard => $"Keyboard { (Keys)ButtonOrKey }",
                 PTMDeviceType.Joystick => $"Joystick Button { ButtonOrKey + 1 } on { Name }",
                 PTMDeviceType.Mouse => $"Mouse Button { (MouseButtons)ButtonOrKey}",
                 _ => "None",
