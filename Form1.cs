@@ -401,19 +401,19 @@ namespace AfvCompanion
             if (mScanning)
             {
                 btnSetPTM.Text = "Cancel";
-                //lblPTTValue.Text = "Waiting for button or key press...";
+                label3.Text = "Waiting for button or key press...";
             }
             else
             {
                 if (mNewPtmConfiguration != null)
                 {
-                    btnSetPTM.Text = "Set a Different PTM Key or Button";
-                    btnSetPTM.Text = mNewPtmConfiguration.ToString();
+                    btnSetPTM.Text = "Set New PTM Key or Button";
+                    label3.Text = mNewPtmConfiguration.ToString();
                 }
                 else
                 {
                     btnSetPTM.Text = "Set New PTM Key or Button";
-                    //lblPTTValue.Text = mConfig.PTTConfiguration.ToString();
+                    label3.Text = mNewPtmConfiguration.ToString();
                 }
             }
             Application.DoEvents();

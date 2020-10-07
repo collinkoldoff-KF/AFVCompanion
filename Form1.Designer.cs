@@ -44,12 +44,14 @@ namespace AfvCompanion
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.appVolume = new System.Windows.Forms.TrackBar();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.pnlToolbar = new AfvCompanion.TransparentClickPanel();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.contextMenu1.SuspendLayout();
             this.pnlTabs.SuspendLayout();
             this.tabControl.SuspendLayout();
@@ -366,6 +368,8 @@ namespace AfvCompanion
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(22)))), ((int)(((byte)(24)))));
+            this.tabPage1.Controls.Add(this.label3);
+            this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.checkBox1);
             this.tabPage1.Controls.Add(this.appListDropdown);
             this.tabPage1.Controls.Add(this.btnAppListRefresh);
@@ -410,6 +414,17 @@ namespace AfvCompanion
             this.tabPage2.Size = new System.Drawing.Size(335, 348);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Auto Deafen";
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(9, 247);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(71, 17);
+            this.checkBox2.TabIndex = 11;
+            this.checkBox2.Text = "Auto Run";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
             // 
             // label1
             // 
@@ -466,16 +481,23 @@ namespace AfvCompanion
             this.notifyIcon1.Text = "AFVCompanion";
             this.notifyIcon1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseClick);
             // 
-            // checkBox2
+            // label2
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(9, 247);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(71, 17);
-            this.checkBox2.TabIndex = 11;
-            this.checkBox2.Text = "Auto Run";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(9, 139);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(128, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Current PTT Assignment: ";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(134, 139);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(33, 13);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "None";
             // 
             // Form1
             // 
@@ -538,5 +560,7 @@ namespace AfvCompanion
         private Label label1;
         private CheckBox checkBox1;
         private CheckBox checkBox2;
+        private Label label2;
+        private Label label3;
     }
 }
