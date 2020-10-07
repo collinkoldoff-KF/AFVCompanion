@@ -21,6 +21,8 @@ namespace AfvCompanion.Config
         public string AutoDeafenApplication4 { get; set; }
         public string AutoDeafenApplication5 { get; set; }
         public float AppVolume { get; set; } = 0.2f;
+        public bool PTMAutoRun { get; set; } = false;
+        public bool AutoDeafenAutoRun { get; set; } = false;
 
         public AppConfig()
         {

@@ -5,13 +5,16 @@
         //Define variables here
         PTMConfiguration PTMConfiguration { get; set; }
         string PTMApplication { get; set; }
-        public string AutoDeafenApplication { get; set; }
-        public string AutoDeafenApplication1 { get; set; }
-        public string AutoDeafenApplication2 { get; set; }
-        public string AutoDeafenApplication3 { get; set; }
-        public string AutoDeafenApplication4 { get; set; }
-        public string AutoDeafenApplication5 { get; set; }
+        string AutoDeafenApplication { get; set; }
+        string AutoDeafenApplication1 { get; set; }
+        string AutoDeafenApplication2 { get; set; }
+        string AutoDeafenApplication3 { get; set; }
+        string AutoDeafenApplication4 { get; set; }
+        string AutoDeafenApplication5 { get; set; }
         float AppVolume { get; set; }
+        bool PTMAutoRun { get; set; }
+        bool AutoDeafenAutoRun { get; set; }
+
 
         void SaveConfig();
         void LoadConfig(string path);

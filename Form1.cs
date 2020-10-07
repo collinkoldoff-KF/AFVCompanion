@@ -15,6 +15,7 @@ using AfvCompanion.Core;
 using Ninject;
 using Appccelerate.EventBroker;
 using Castle.Core.Internal;
+using System.Drawing.Text;
 
 namespace AfvCompanion
 {
@@ -38,6 +39,8 @@ namespace AfvCompanion
         public static string AutoDeafenApplication3 = "None";
         public static string AutoDeafenApplication4 = "None";
         public static string AutoDeafenApplication5 = "None";
+
+        public static bool AutoDeafenAutoRunStarted = false;
 
         private readonly IAppConfig mConfig;
         private readonly DirectInput mDirectInput;
@@ -74,6 +77,15 @@ namespace AfvCompanion
             AutoDeafenApplication5 = mConfig.AutoDeafenApplication5;
             appVolume.Value = (int)(mConfig.AppVolume * 100);
             label1.Text = appVolume.Value + "%";
+            checkBox1.Checked = mConfig.PTMAutoRun;
+            checkBox2.Checked = mConfig.AutoDeafenAutoRun;
+            if (mConfig.PTMAutoRun)
+                PushToDeafenToggle(null, null);
+            if (mConfig.AutoDeafenAutoRun)
+            {
+                AutoDeafenAutoRunStarted = true;
+                AutoDeafenToggle(null, null);
+            }
             audioDevices(null, null);
         }
 
@@ -703,11 +715,23 @@ namespace AfvCompanion
             {
                 if (AutoDeafenApplication1 == "Undefined")
                 {
+                    if (AutoDeafenAutoRunStarted)
+                    {
+                        AutoDeafenAutoRunStarted = false;
+                        checkBox2.Checked = false;
+                        return;
+                    }
                     var result = MessageBox.Show("Error: You must define one or more application to deafen", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 if (AutoDeafenApplicationName == "Undefined")
                 {
+                    if (AutoDeafenAutoRunStarted)
+                    {
+                        AutoDeafenAutoRunStarted = false;
+                        checkBox2.Checked = false;
+                        return;
+                    }
                     var result = MessageBox.Show("Error: You must define a listener application", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
@@ -763,6 +787,17 @@ namespace AfvCompanion
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            mConfig.PTMAutoRun = checkBox1.Checked;
+            mConfig.SaveConfig();
+        }
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            mConfig.AutoDeafenAutoRun = checkBox2.Checked;
+            mConfig.SaveConfig();
         }
     }
 }
