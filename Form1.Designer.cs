@@ -42,6 +42,8 @@ namespace AfvCompanion
             this.pnlTabs = new AfvCompanion.TransparentClickPanel();
             this.tabControl = new AfvCompanion.CustomTabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.ptmBtnLabel = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
@@ -50,8 +52,6 @@ namespace AfvCompanion
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.pnlToolbar = new AfvCompanion.TransparentClickPanel();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
-            this.label1 = new System.Windows.Forms.Label();
-            this.ptmBtnLabel = new System.Windows.Forms.Label();
             this.contextMenu1.SuspendLayout();
             this.pnlTabs.SuspendLayout();
             this.tabControl.SuspendLayout();
@@ -61,7 +61,7 @@ namespace AfvCompanion
             this.pnlToolbar.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label
+            // toolbarLabel
             // 
             this.toolbarLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.toolbarLabel.AutoSize = true;
@@ -70,78 +70,78 @@ namespace AfvCompanion
             this.toolbarLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.toolbarLabel.HasBorder = false;
             this.toolbarLabel.Location = new System.Drawing.Point(150, 20);
-            this.toolbarLabel.Name = "label";
+            this.toolbarLabel.Name = "toolbarLabel";
             this.toolbarLabel.Size = new System.Drawing.Size(106, 16);
             this.toolbarLabel.TabIndex = 5;
             this.toolbarLabel.Text = "AFV Companion";
             this.toolbarLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // appListDropdown
+            // ptmAppListDropdown
             // 
             this.ptmAppListDropdown.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.ptmAppListDropdown.ForeColor = System.Drawing.Color.White;
             this.ptmAppListDropdown.Location = new System.Drawing.Point(9, 87);
-            this.ptmAppListDropdown.Name = "appListDropdown";
+            this.ptmAppListDropdown.Name = "ptmAppListDropdown";
             this.ptmAppListDropdown.Size = new System.Drawing.Size(227, 21);
             this.ptmAppListDropdown.TabIndex = 0;
             this.ptmAppListDropdown.SelectedIndexChanged += new System.EventHandler(this.appListDropdown_SelectedIndexChanged);
             // 
-            // appListDropdown2
+            // autoDeafenListenerDropdown1
             // 
             this.autoDeafenListenerDropdown1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.autoDeafenListenerDropdown1.ForeColor = System.Drawing.Color.White;
             this.autoDeafenListenerDropdown1.Location = new System.Drawing.Point(9, 9);
-            this.autoDeafenListenerDropdown1.Name = "appListDropdown2";
+            this.autoDeafenListenerDropdown1.Name = "autoDeafenListenerDropdown1";
             this.autoDeafenListenerDropdown1.Size = new System.Drawing.Size(227, 21);
             this.autoDeafenListenerDropdown1.TabIndex = 0;
             this.autoDeafenListenerDropdown1.SelectedIndexChanged += new System.EventHandler(this.appListDropdown2_SelectedIndexChanged);
             // 
-            // appListDropdown3
+            // autoDeafenAppDropdown1
             // 
             this.autoDeafenAppDropdown1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.autoDeafenAppDropdown1.ForeColor = System.Drawing.Color.White;
             this.autoDeafenAppDropdown1.Location = new System.Drawing.Point(9, 30);
-            this.autoDeafenAppDropdown1.Name = "appListDropdown3";
+            this.autoDeafenAppDropdown1.Name = "autoDeafenAppDropdown1";
             this.autoDeafenAppDropdown1.Size = new System.Drawing.Size(227, 21);
             this.autoDeafenAppDropdown1.TabIndex = 0;
             this.autoDeafenAppDropdown1.SelectedIndexChanged += new System.EventHandler(this.appListDropdown3_SelectedIndexChanged);
             // 
-            // appListDropdown4
+            // autoDeafenAppDropdown2
             // 
             this.autoDeafenAppDropdown2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.autoDeafenAppDropdown2.ForeColor = System.Drawing.Color.White;
             this.autoDeafenAppDropdown2.Location = new System.Drawing.Point(9, 52);
-            this.autoDeafenAppDropdown2.Name = "appListDropdown4";
+            this.autoDeafenAppDropdown2.Name = "autoDeafenAppDropdown2";
             this.autoDeafenAppDropdown2.Size = new System.Drawing.Size(227, 21);
             this.autoDeafenAppDropdown2.TabIndex = 0;
             this.autoDeafenAppDropdown2.SelectedIndexChanged += new System.EventHandler(this.appListDropdown4_SelectedIndexChanged);
             // 
-            // appListDropdown5
+            // autoDeafenAppDropdown3
             // 
             this.autoDeafenAppDropdown3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.autoDeafenAppDropdown3.ForeColor = System.Drawing.Color.White;
             this.autoDeafenAppDropdown3.Location = new System.Drawing.Point(9, 74);
-            this.autoDeafenAppDropdown3.Name = "appListDropdown5";
+            this.autoDeafenAppDropdown3.Name = "autoDeafenAppDropdown3";
             this.autoDeafenAppDropdown3.Size = new System.Drawing.Size(227, 21);
             this.autoDeafenAppDropdown3.TabIndex = 0;
             this.autoDeafenAppDropdown3.SelectedIndexChanged += new System.EventHandler(this.appListDropdown5_SelectedIndexChanged);
             // 
-            // appListDropdown6
+            // autoDeafenAppDropdown4
             // 
             this.autoDeafenAppDropdown4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.autoDeafenAppDropdown4.ForeColor = System.Drawing.Color.White;
             this.autoDeafenAppDropdown4.Location = new System.Drawing.Point(9, 95);
-            this.autoDeafenAppDropdown4.Name = "appListDropdown6";
+            this.autoDeafenAppDropdown4.Name = "autoDeafenAppDropdown4";
             this.autoDeafenAppDropdown4.Size = new System.Drawing.Size(227, 21);
             this.autoDeafenAppDropdown4.TabIndex = 0;
             this.autoDeafenAppDropdown4.SelectedIndexChanged += new System.EventHandler(this.appListDropdown6_SelectedIndexChanged);
             // 
-            // appListDropdown7
+            // autoDeafenAppDropdown5
             // 
             this.autoDeafenAppDropdown5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.autoDeafenAppDropdown5.ForeColor = System.Drawing.Color.White;
             this.autoDeafenAppDropdown5.Location = new System.Drawing.Point(9, 117);
-            this.autoDeafenAppDropdown5.Name = "appListDropdown7";
+            this.autoDeafenAppDropdown5.Name = "autoDeafenAppDropdown5";
             this.autoDeafenAppDropdown5.Size = new System.Drawing.Size(227, 21);
             this.autoDeafenAppDropdown5.TabIndex = 0;
             this.autoDeafenAppDropdown5.SelectedIndexChanged += new System.EventHandler(this.appListDropdown7_SelectedIndexChanged);
@@ -383,6 +383,24 @@ namespace AfvCompanion
             this.tabPage1.Text = "Push To Deafen";
             this.tabPage1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
             // 
+            // ptmBtnLabel
+            // 
+            this.ptmBtnLabel.AutoSize = true;
+            this.ptmBtnLabel.Location = new System.Drawing.Point(125, 139);
+            this.ptmBtnLabel.Name = "ptmBtnLabel";
+            this.ptmBtnLabel.Size = new System.Drawing.Size(33, 13);
+            this.ptmBtnLabel.TabIndex = 3;
+            this.ptmBtnLabel.Text = "None";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(9, 139);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(127, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Current PTM Assignment:";
+            // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
@@ -426,11 +444,11 @@ namespace AfvCompanion
             this.checkBox2.UseVisualStyleBackColor = true;
             this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
             // 
-            // label1
+            // volumeLabel
             // 
             this.volumeLabel.AutoSize = true;
             this.volumeLabel.Location = new System.Drawing.Point(302, 163);
-            this.volumeLabel.Name = "label1";
+            this.volumeLabel.Name = "volumeLabel";
             this.volumeLabel.Size = new System.Drawing.Size(27, 13);
             this.volumeLabel.TabIndex = 2;
             this.volumeLabel.Text = "20%";
@@ -480,24 +498,6 @@ namespace AfvCompanion
             this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
             this.notifyIcon1.Text = "AFVCompanion";
             this.notifyIcon1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseClick);
-            // 
-            // label2
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 139);
-            this.label1.Name = "label2";
-            this.label1.Size = new System.Drawing.Size(128, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Current PTM Assignment:";
-            // 
-            // label3
-            // 
-            this.ptmBtnLabel.AutoSize = true;
-            this.ptmBtnLabel.Location = new System.Drawing.Point(125, 139);
-            this.ptmBtnLabel.Name = "label3";
-            this.ptmBtnLabel.Size = new System.Drawing.Size(33, 13);
-            this.ptmBtnLabel.TabIndex = 3;
-            this.ptmBtnLabel.Text = "None";
             // 
             // Form1
             // 
