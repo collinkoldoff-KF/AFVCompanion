@@ -49,6 +49,7 @@ namespace AfvCompanion
         private readonly List<PTMConfiguration> mIgnoreList = new List<PTMConfiguration>();
         private PTMConfiguration mNewPtmConfiguration;
         private bool mScanning;
+        private bool firstAudioScan = true;
 
         private Process[] processlist;
 
@@ -88,7 +89,8 @@ namespace AfvCompanion
                 AutoDeafenToggle(null, null);
             }
             audioDevices(null, null);
-        }
+            firstAudioScan = false;
+    }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
@@ -152,6 +154,7 @@ namespace AfvCompanion
             {
                 mConfig.LoadConfig();
                 mConfig.AutoDeafenApplication1 = autoDeafenAppDropdown1.SelectedItem.ToString();
+                AutoDeafenApplication1 = autoDeafenAppDropdown1.SelectedItem.ToString();
                 mConfig.SaveConfig();
                 if (AutoDeafen.run)
                     AutoDeafenToggle(null, null);
@@ -174,6 +177,7 @@ namespace AfvCompanion
             {
                 mConfig.LoadConfig();
                 mConfig.AutoDeafenApplication2 = autoDeafenAppDropdown2.SelectedItem.ToString();
+                AutoDeafenApplication2 = autoDeafenAppDropdown2.SelectedItem.ToString();
                 mConfig.SaveConfig();
                 if (AutoDeafen.run)
                     AutoDeafenToggle(null, null);
@@ -196,6 +200,7 @@ namespace AfvCompanion
             {
                 mConfig.LoadConfig();
                 mConfig.AutoDeafenApplication3 = autoDeafenAppDropdown3.SelectedItem.ToString();
+                AutoDeafenApplication3 = autoDeafenAppDropdown3.SelectedItem.ToString();
                 mConfig.SaveConfig();
                 if (AutoDeafen.run)
                     AutoDeafenToggle(null, null);
@@ -218,6 +223,7 @@ namespace AfvCompanion
             {
                 mConfig.LoadConfig();
                 mConfig.AutoDeafenApplication4 = autoDeafenAppDropdown4.SelectedItem.ToString();
+                AutoDeafenApplication4 = autoDeafenAppDropdown4.SelectedItem.ToString();
                 mConfig.SaveConfig();
                 if (AutoDeafen.run)
                     AutoDeafenToggle(null, null);
@@ -240,6 +246,7 @@ namespace AfvCompanion
             {
                 mConfig.LoadConfig();
                 mConfig.AutoDeafenApplication5 = autoDeafenAppDropdown5.SelectedItem.ToString();
+                AutoDeafenApplication5 = autoDeafenAppDropdown5.SelectedItem.ToString();
                 mConfig.SaveConfig();
                 if (AutoDeafen.run)
                     AutoDeafenToggle(null, null);
@@ -281,7 +288,7 @@ namespace AfvCompanion
             {
                 Show();
                 Focus();
-                this.WindowState = FormWindowState.Normal;
+                WindowState = FormWindowState.Normal;
                 notifyIcon1.Visible = false;
             }
         }
@@ -316,7 +323,7 @@ namespace AfvCompanion
         {
             Show();
             Focus();
-            this.WindowState = FormWindowState.Normal;
+            WindowState = FormWindowState.Normal;
             notifyIcon1.Visible = false;
         }
 
@@ -335,8 +342,6 @@ namespace AfvCompanion
         }
         private void TabControl_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //tabControl.SelectedTab.ForeColor = Color.Silver;
-            //tabControl.Refresh();
         }
         private void btnDisableAll_click(object sender, EventArgs e)
         {
@@ -358,9 +363,9 @@ namespace AfvCompanion
             else
             {
                 /*
-                if (mNewPttConfiguration != null)
+                if (mNewPtmConfiguration != null)
                 {
-                    mIgnoreList.Add(mNewPttConfiguration);
+                    mIgnoreList.Add(mNewPtmConfiguration);
                 }*/
                 StartScanning();
             }
@@ -638,7 +643,7 @@ namespace AfvCompanion
             {
                 if (AudioManager.GetApplicationVolume(process.Id) != null)
                 {
-                    Debug.WriteLine(process.ProcessName + " # " + process.Id);
+                    //Debug.WriteLine(process.ProcessName + " # " + process.Id);
                     ptmAppListDropdown.Items.Add(process.ProcessName);
                     autoDeafenListenerDropdown1.Items.Add(process.ProcessName);
                     autoDeafenAppDropdown1.Items.Add(process.ProcessName);
@@ -648,21 +653,22 @@ namespace AfvCompanion
                     autoDeafenAppDropdown5.Items.Add(process.ProcessName);
                 }
             }
-
-            try { ptmAppListDropdown.SelectedIndex = ptmAppListDropdown.Items.IndexOf(PTMApplicationName); }
-            catch { ptmAppListDropdown.SelectedIndex = 0; }
-            try { autoDeafenListenerDropdown1.SelectedIndex = autoDeafenListenerDropdown1.Items.IndexOf(AutoDeafenApplicationName); }
-            catch { autoDeafenListenerDropdown1.SelectedIndex = 0; }
-            try { autoDeafenAppDropdown1.SelectedIndex = autoDeafenAppDropdown1.Items.IndexOf(AutoDeafenApplication1); }
-            catch { autoDeafenAppDropdown1.SelectedIndex = 0; }
-            try { autoDeafenAppDropdown2.SelectedIndex = autoDeafenAppDropdown2.Items.IndexOf(AutoDeafenApplication2); }
-            catch { autoDeafenAppDropdown2.SelectedIndex = 0; }
-            try { autoDeafenAppDropdown3.SelectedIndex = autoDeafenAppDropdown3.Items.IndexOf(AutoDeafenApplication3); }
-            catch { autoDeafenAppDropdown3.SelectedIndex = 0; }
-            try { autoDeafenAppDropdown4.SelectedIndex = autoDeafenAppDropdown4.Items.IndexOf(AutoDeafenApplication4); }
-            catch { autoDeafenAppDropdown4.SelectedIndex = 0; }
-            try { autoDeafenAppDropdown5.SelectedIndex = autoDeafenAppDropdown5.Items.IndexOf(AutoDeafenApplication5); }
-            catch { autoDeafenAppDropdown5.SelectedIndex = 0; }
+            if (firstAudioScan) {
+                try { ptmAppListDropdown.SelectedIndex = ptmAppListDropdown.Items.IndexOf(PTMApplicationName); }
+                catch { ptmAppListDropdown.SelectedIndex = 0; }
+                try { autoDeafenListenerDropdown1.SelectedIndex = autoDeafenListenerDropdown1.Items.IndexOf(AutoDeafenApplicationName); }
+                catch { autoDeafenListenerDropdown1.SelectedIndex = 0; }
+                try { autoDeafenAppDropdown1.SelectedIndex = autoDeafenAppDropdown1.Items.IndexOf(AutoDeafenApplication1); }
+                catch { autoDeafenAppDropdown1.SelectedIndex = 0; }
+                try { autoDeafenAppDropdown2.SelectedIndex = autoDeafenAppDropdown2.Items.IndexOf(AutoDeafenApplication2); }
+                catch { autoDeafenAppDropdown2.SelectedIndex = 0; }
+                try { autoDeafenAppDropdown3.SelectedIndex = autoDeafenAppDropdown3.Items.IndexOf(AutoDeafenApplication3); }
+                catch { autoDeafenAppDropdown3.SelectedIndex = 0; }
+                try { autoDeafenAppDropdown4.SelectedIndex = autoDeafenAppDropdown4.Items.IndexOf(AutoDeafenApplication4); }
+                catch { autoDeafenAppDropdown4.SelectedIndex = 0; }
+                try { autoDeafenAppDropdown5.SelectedIndex = autoDeafenAppDropdown5.Items.IndexOf(AutoDeafenApplication5); }
+                catch { autoDeafenAppDropdown5.SelectedIndex = 0; }
+            }
         }
         public void PushToDeafenToggle(object sender, EventArgs e)
         {
@@ -797,6 +803,11 @@ namespace AfvCompanion
         {
             mConfig.AutoDeafenAutoRun = checkBox2.Checked;
             mConfig.SaveConfig();
+        }
+
+        private void tabPage2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
