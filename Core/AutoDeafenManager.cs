@@ -95,6 +95,7 @@ namespace AfvCompanion.Core
                         catch { }
                         try { AudioManager.SetApplicationVolume(AutoDeafen.AutoDeafenApplicationPid5, AutoDeafen.appOriginalVol5); }
                         catch { }
+                        // TODO Add fade into original volume
                     }
                 }
             }

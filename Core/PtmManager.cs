@@ -102,7 +102,6 @@ namespace AfvCompanion.Core
                 if (mPtmStatus)
                 {
                     if (PushToDeafen.run)
-                        Debug.WriteLine(Form1.PTMApplicationPid);
                         AudioManager.SetApplicationMute(Form1.PTMApplicationPid, true);
                 }
                 else
