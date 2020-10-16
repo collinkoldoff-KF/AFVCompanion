@@ -437,9 +437,9 @@ namespace AfvCompanion
             this.checkBox1.AutoSize = true;
             this.checkBox1.Location = new System.Drawing.Point(9, 123);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(71, 17);
+            this.checkBox1.Size = new System.Drawing.Size(73, 17);
             this.checkBox1.TabIndex = 1;
-            this.checkBox1.Text = "Auto Run";
+            this.checkBox1.Text = "Auto Start";
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
@@ -467,11 +467,11 @@ namespace AfvCompanion
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(9, 247);
+            this.checkBox2.Location = new System.Drawing.Point(9, 273);
             this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(71, 17);
+            this.checkBox2.Size = new System.Drawing.Size(73, 17);
             this.checkBox2.TabIndex = 11;
-            this.checkBox2.Text = "Auto Run";
+            this.checkBox2.Text = "Auto Start";
             this.checkBox2.UseVisualStyleBackColor = true;
             this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
             // 
