@@ -804,10 +804,5 @@ namespace AfvCompanion
             mConfig.AutoDeafenAutoRun = checkBox2.Checked;
             mConfig.SaveConfig();
         }
-
-        private void tabPage2_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

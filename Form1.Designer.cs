@@ -42,6 +42,8 @@ namespace AfvCompanion
             this.pnlTabs = new AfvCompanion.TransparentClickPanel();
             this.tabControl = new AfvCompanion.CustomTabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.ptmBtnLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
@@ -81,9 +83,7 @@ namespace AfvCompanion
             this.ptmAppListDropdown.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.ptmAppListDropdown.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.ptmAppListDropdown.ForeColor = System.Drawing.Color.White;
-            this.ptmAppListDropdown.IntegralHeight = false;
-            this.ptmAppListDropdown.ItemHeight = 13;
-            this.ptmAppListDropdown.Location = new System.Drawing.Point(9, 87);
+            this.ptmAppListDropdown.Location = new System.Drawing.Point(9, 20);
             this.ptmAppListDropdown.Name = "ptmAppListDropdown";
             this.ptmAppListDropdown.Size = new System.Drawing.Size(227, 21);
             this.ptmAppListDropdown.TabIndex = 0;
@@ -184,7 +184,7 @@ namespace AfvCompanion
             this.btnAppListRefresh.DisabledTextColor = System.Drawing.Color.DarkGray;
             this.btnAppListRefresh.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAppListRefresh.ForeColor = System.Drawing.Color.White;
-            this.btnAppListRefresh.Location = new System.Drawing.Point(240, 87);
+            this.btnAppListRefresh.Location = new System.Drawing.Point(240, 20);
             this.btnAppListRefresh.Name = "btnAppListRefresh";
             this.btnAppListRefresh.Pushed = false;
             this.btnAppListRefresh.PushedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(206)))));
@@ -315,7 +315,7 @@ namespace AfvCompanion
             this.btnSetPTM.DisabledTextColor = System.Drawing.Color.DarkGray;
             this.btnSetPTM.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSetPTM.ForeColor = System.Drawing.Color.White;
-            this.btnSetPTM.Location = new System.Drawing.Point(9, 113);
+            this.btnSetPTM.Location = new System.Drawing.Point(9, 71);
             this.btnSetPTM.Name = "btnSetPTM";
             this.btnSetPTM.Pushed = false;
             this.btnSetPTM.PushedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(206)))));
@@ -377,6 +377,8 @@ namespace AfvCompanion
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(22)))), ((int)(((byte)(24)))));
+            this.tabPage1.Controls.Add(this.label3);
+            this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.ptmBtnLabel);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.checkBox1);
@@ -392,19 +394,39 @@ namespace AfvCompanion
             this.tabPage1.Text = "Push To Deafen";
             this.tabPage1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 55);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(211, 13);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Push To Mute (PTM) Device Configuration:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 4);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(132, 13);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Push To Mute Application:";
+            // 
             // ptmBtnLabel
             // 
             this.ptmBtnLabel.AutoSize = true;
-            this.ptmBtnLabel.Location = new System.Drawing.Point(125, 139);
+            this.ptmBtnLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ptmBtnLabel.Location = new System.Drawing.Point(129, 93);
+            this.ptmBtnLabel.MaximumSize = new System.Drawing.Size(200, 0);
             this.ptmBtnLabel.Name = "ptmBtnLabel";
-            this.ptmBtnLabel.Size = new System.Drawing.Size(33, 13);
+            this.ptmBtnLabel.Size = new System.Drawing.Size(37, 13);
             this.ptmBtnLabel.TabIndex = 3;
             this.ptmBtnLabel.Text = "None";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 139);
+            this.label1.Location = new System.Drawing.Point(6, 93);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(127, 13);
             this.label1.TabIndex = 2;
@@ -413,7 +435,7 @@ namespace AfvCompanion
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(9, 160);
+            this.checkBox1.Location = new System.Drawing.Point(9, 123);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(71, 17);
             this.checkBox1.TabIndex = 1;
@@ -441,7 +463,6 @@ namespace AfvCompanion
             this.tabPage2.Size = new System.Drawing.Size(335, 348);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Auto Deafen";
-            this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
             // 
             // checkBox2
             // 
@@ -572,5 +593,7 @@ namespace AfvCompanion
         private CheckBox checkBox2;
         private Label label1;
         private Label ptmBtnLabel;
+        private Label label2;
+        private Label label3;
     }
 }
