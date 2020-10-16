@@ -34,7 +34,7 @@ namespace AfvCompanion
             this.btnClose = new AfvCompanion.FlatButton();
             this.btnDisableAll = new AfvCompanion.FlatButton();
             this.btnMinimize = new AfvCompanion.FlatButton();
-            this.btnSettings = new AfvCompanion.FlatButton();
+            this.btnInfo = new AfvCompanion.FlatButton();
             this.btnSetPTM = new AfvCompanion.FlatButton();
             this.contextMenu1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -291,22 +291,22 @@ namespace AfvCompanion
             this.btnMinimize.Text = "–";
             this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
             // 
-            // btnSettings
+            // btnInfo
             // 
-            this.btnSettings.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.btnSettings.Clicked = false;
-            this.btnSettings.ClickedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(206)))));
-            this.btnSettings.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSettings.DisabledTextColor = System.Drawing.Color.DarkGray;
-            this.btnSettings.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSettings.ForeColor = System.Drawing.Color.White;
-            this.btnSettings.Location = new System.Drawing.Point(9, 16);
-            this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Pushed = false;
-            this.btnSettings.PushedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(206)))));
-            this.btnSettings.Size = new System.Drawing.Size(64, 20);
-            this.btnSettings.TabIndex = 4;
-            this.btnSettings.Text = "Settings";
+            this.btnInfo.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.btnInfo.Clicked = false;
+            this.btnInfo.ClickedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(206)))));
+            this.btnInfo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnInfo.DisabledTextColor = System.Drawing.Color.DarkGray;
+            this.btnInfo.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInfo.ForeColor = System.Drawing.Color.White;
+            this.btnInfo.Location = new System.Drawing.Point(9, 16);
+            this.btnInfo.Name = "btnInfo";
+            this.btnInfo.Pushed = false;
+            this.btnInfo.PushedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(206)))));
+            this.btnInfo.Size = new System.Drawing.Size(64, 20);
+            this.btnInfo.TabIndex = 4;
+            this.btnInfo.Text = "Info";
             // 
             // btnSetPTM
             // 
@@ -518,7 +518,7 @@ namespace AfvCompanion
             // 
             this.pnlToolbar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(44)))), ((int)(((byte)(46)))));
             this.pnlToolbar.BorderColor = System.Drawing.Color.Transparent;
-            this.pnlToolbar.Controls.Add(this.btnSettings);
+            this.pnlToolbar.Controls.Add(this.btnInfo);
             this.pnlToolbar.Controls.Add(this.btnDisableAll);
             this.pnlToolbar.Controls.Add(this.toolbarLabel);
             this.pnlToolbar.Controls.Add(this.btnMinimize);
@@ -607,7 +607,7 @@ namespace AfvCompanion
         private FlatButton btnClose;
         private FlatButton btnDisableAll;
         private FlatButton btnMinimize;
-        private FlatButton btnSettings;
+        private FlatButton btnInfo;
         private FlatButton btnSetPTM;
         private TransparentClickLabel toolbarLabel;
         private ContextMenuStrip contextMenu1;
