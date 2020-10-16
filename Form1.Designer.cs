@@ -54,6 +54,9 @@ namespace AfvCompanion
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.pnlToolbar = new AfvCompanion.TransparentClickPanel();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.contextMenu1.SuspendLayout();
             this.pnlTabs.SuspendLayout();
             this.tabControl.SuspendLayout();
@@ -94,7 +97,7 @@ namespace AfvCompanion
             this.autoDeafenListenerDropdown1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.autoDeafenListenerDropdown1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.autoDeafenListenerDropdown1.ForeColor = System.Drawing.Color.White;
-            this.autoDeafenListenerDropdown1.Location = new System.Drawing.Point(9, 17);
+            this.autoDeafenListenerDropdown1.Location = new System.Drawing.Point(9, 27);
             this.autoDeafenListenerDropdown1.Name = "autoDeafenListenerDropdown1";
             this.autoDeafenListenerDropdown1.Size = new System.Drawing.Size(227, 21);
             this.autoDeafenListenerDropdown1.TabIndex = 0;
@@ -105,7 +108,7 @@ namespace AfvCompanion
             this.autoDeafenAppDropdown1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.autoDeafenAppDropdown1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.autoDeafenAppDropdown1.ForeColor = System.Drawing.Color.White;
-            this.autoDeafenAppDropdown1.Location = new System.Drawing.Point(9, 44);
+            this.autoDeafenAppDropdown1.Location = new System.Drawing.Point(9, 71);
             this.autoDeafenAppDropdown1.Name = "autoDeafenAppDropdown1";
             this.autoDeafenAppDropdown1.Size = new System.Drawing.Size(227, 21);
             this.autoDeafenAppDropdown1.TabIndex = 0;
@@ -116,7 +119,7 @@ namespace AfvCompanion
             this.autoDeafenAppDropdown2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.autoDeafenAppDropdown2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.autoDeafenAppDropdown2.ForeColor = System.Drawing.Color.White;
-            this.autoDeafenAppDropdown2.Location = new System.Drawing.Point(9, 71);
+            this.autoDeafenAppDropdown2.Location = new System.Drawing.Point(9, 98);
             this.autoDeafenAppDropdown2.Name = "autoDeafenAppDropdown2";
             this.autoDeafenAppDropdown2.Size = new System.Drawing.Size(227, 21);
             this.autoDeafenAppDropdown2.TabIndex = 0;
@@ -127,7 +130,7 @@ namespace AfvCompanion
             this.autoDeafenAppDropdown3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.autoDeafenAppDropdown3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.autoDeafenAppDropdown3.ForeColor = System.Drawing.Color.White;
-            this.autoDeafenAppDropdown3.Location = new System.Drawing.Point(9, 98);
+            this.autoDeafenAppDropdown3.Location = new System.Drawing.Point(9, 125);
             this.autoDeafenAppDropdown3.Name = "autoDeafenAppDropdown3";
             this.autoDeafenAppDropdown3.Size = new System.Drawing.Size(227, 21);
             this.autoDeafenAppDropdown3.TabIndex = 0;
@@ -138,7 +141,7 @@ namespace AfvCompanion
             this.autoDeafenAppDropdown4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.autoDeafenAppDropdown4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.autoDeafenAppDropdown4.ForeColor = System.Drawing.Color.White;
-            this.autoDeafenAppDropdown4.Location = new System.Drawing.Point(9, 125);
+            this.autoDeafenAppDropdown4.Location = new System.Drawing.Point(9, 152);
             this.autoDeafenAppDropdown4.Name = "autoDeafenAppDropdown4";
             this.autoDeafenAppDropdown4.Size = new System.Drawing.Size(227, 21);
             this.autoDeafenAppDropdown4.TabIndex = 0;
@@ -149,7 +152,7 @@ namespace AfvCompanion
             this.autoDeafenAppDropdown5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.autoDeafenAppDropdown5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.autoDeafenAppDropdown5.ForeColor = System.Drawing.Color.White;
-            this.autoDeafenAppDropdown5.Location = new System.Drawing.Point(9, 152);
+            this.autoDeafenAppDropdown5.Location = new System.Drawing.Point(9, 179);
             this.autoDeafenAppDropdown5.Name = "autoDeafenAppDropdown5";
             this.autoDeafenAppDropdown5.Size = new System.Drawing.Size(227, 21);
             this.autoDeafenAppDropdown5.TabIndex = 0;
@@ -222,13 +225,13 @@ namespace AfvCompanion
             this.btnAppListRefresh2.DisabledTextColor = System.Drawing.Color.DarkGray;
             this.btnAppListRefresh2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAppListRefresh2.ForeColor = System.Drawing.Color.White;
-            this.btnAppListRefresh2.Location = new System.Drawing.Point(265, 69);
+            this.btnAppListRefresh2.Location = new System.Drawing.Point(258, 27);
             this.btnAppListRefresh2.Name = "btnAppListRefresh2";
             this.btnAppListRefresh2.Pushed = false;
             this.btnAppListRefresh2.PushedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(206)))));
             this.btnAppListRefresh2.Size = new System.Drawing.Size(64, 21);
             this.btnAppListRefresh2.TabIndex = 0;
-            this.btnAppListRefresh2.Text = "Refresh";
+            this.btnAppListRefresh2.Text = "Refresh All";
             this.btnAppListRefresh2.Click += new System.EventHandler(this.audioDevices);
             // 
             // btnClose
@@ -446,6 +449,9 @@ namespace AfvCompanion
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(22)))), ((int)(((byte)(24)))));
+            this.tabPage2.Controls.Add(this.label6);
+            this.tabPage2.Controls.Add(this.label5);
+            this.tabPage2.Controls.Add(this.label4);
             this.tabPage2.Controls.Add(this.checkBox2);
             this.tabPage2.Controls.Add(this.volumeLabel);
             this.tabPage2.Controls.Add(this.appVolume);
@@ -478,7 +484,7 @@ namespace AfvCompanion
             // volumeLabel
             // 
             this.volumeLabel.AutoSize = true;
-            this.volumeLabel.Location = new System.Drawing.Point(302, 187);
+            this.volumeLabel.Location = new System.Drawing.Point(298, 228);
             this.volumeLabel.Name = "volumeLabel";
             this.volumeLabel.Size = new System.Drawing.Size(27, 13);
             this.volumeLabel.TabIndex = 2;
@@ -488,7 +494,7 @@ namespace AfvCompanion
             // appVolume
             // 
             this.appVolume.LargeChange = 10;
-            this.appVolume.Location = new System.Drawing.Point(9, 187);
+            this.appVolume.Location = new System.Drawing.Point(5, 228);
             this.appVolume.Maximum = 100;
             this.appVolume.Name = "appVolume";
             this.appVolume.Size = new System.Drawing.Size(295, 45);
@@ -529,6 +535,33 @@ namespace AfvCompanion
             this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
             this.notifyIcon1.Text = "AFVCompanion";
             this.notifyIcon1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseClick);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(9, 8);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(162, 13);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "Auto Deafen Listener Application";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(9, 55);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(127, 13);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "Auto Deafen Applications";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 212);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(42, 13);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "Volume";
             // 
             // Form1
             // 
@@ -595,5 +628,8 @@ namespace AfvCompanion
         private Label ptmBtnLabel;
         private Label label2;
         private Label label3;
+        private Label label6;
+        private Label label5;
+        private Label label4;
     }
 }
