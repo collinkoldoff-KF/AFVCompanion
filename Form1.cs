@@ -33,8 +33,8 @@ namespace AfvCompanion
         public static int PTMApplicationPid;
         public static int AutoDeafenApplicationPid;
         public static string PTMApplicationName = "Undefined";
-        public static string AutoDeafenApplicationName = "Undefined";
-        public static string AutoDeafenApplication1 = "Undefined";
+        public static string AutoDeafenApplicationName = "";
+        public static string AutoDeafenApplication1 = "";
         public static string AutoDeafenApplication2 = "None";
         public static string AutoDeafenApplication3 = "None";
         public static string AutoDeafenApplication4 = "None";
@@ -134,6 +134,7 @@ namespace AfvCompanion
         {
             mConfig.LoadConfig();
             mConfig.AutoDeafenApplication = autoDeafenListenerDropdown1.SelectedItem.ToString();
+            AutoDeafenApplicationName = autoDeafenListenerDropdown1.SelectedItem.ToString();
             mConfig.SaveConfig();
             if (AutoDeafen.run)
                 AutoDeafenToggle(null, null);
@@ -631,8 +632,8 @@ namespace AfvCompanion
             autoDeafenAppDropdown4.Items.Clear();
             autoDeafenAppDropdown5.Items.Clear();
 
-            autoDeafenListenerDropdown1.Items.Add("Undefined");
-            autoDeafenAppDropdown1.Items.Add("Undefined");
+            autoDeafenListenerDropdown1.Items.Add("");
+            autoDeafenAppDropdown1.Items.Add("");
             autoDeafenAppDropdown2.Items.Add("None");
             autoDeafenAppDropdown3.Items.Add("None");
             autoDeafenAppDropdown4.Items.Add("None");
@@ -718,7 +719,7 @@ namespace AfvCompanion
             }
             else if (AutoDeafen.run == false)
             {
-                if (AutoDeafenApplication1 == "Undefined")
+                if (AutoDeafenApplication1 == "")
                 {
                     if (AutoDeafenAutoRunStarted)
                     {
@@ -729,7 +730,7 @@ namespace AfvCompanion
                     MessageBox.Show("Error: You must define one or more application to deafen", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                if (AutoDeafenApplicationName == "Undefined")
+                if (AutoDeafenApplicationName == "")
                 {
                     if (AutoDeafenAutoRunStarted)
                     {
